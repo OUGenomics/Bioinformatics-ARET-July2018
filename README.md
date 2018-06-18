@@ -27,6 +27,11 @@ Keep in mind that bioinformatics is like riding a bicycle.  One can not learn it
 
 The course will have four sections:
 
+## Prerequisites: Basic Linux Tutorial and Docker
+
+Before we can proceed with the exercises, everyone should be familiar with some basic [linux](https://en.wikipedia.org/wiki/Linux) command line functionality.  Everyone also must install [docker](https://www.docker.com/) and pull the bioinformatics repository we will be using.
+
+
 ## Section 1:  [Basic Sequence Handling, QC, and Sequence Assembly](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/Section-1/readme.md)
 
 The goal will be to learn how to download a sequence file from a repository, view it, and assess its quality statistics.  We will then test two [assembly](https://en.wikipedia.org/wiki/Sequence_assembly) [programs](https://en.wikipedia.org/wiki/De_novo_sequence_assemblers) and choose one for whole genome assembly based on the statistics we generate.  The results from assembly will be uploaded to [RAST](http://rast.nmpdr.org/). 
