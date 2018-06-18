@@ -21,4 +21,21 @@ Several specialty databases have sprung up over the years to handle portions of 
 
 # TOPICS
 
-The topic of bioinformatics is vast.  We easily fill two to three college classes with just the basic material.  However, that does not mean you cannot acquire some basic skills that are very useful, even in the short amount of time available to us in this short-course.   Science is about the questions, and, believe it or now, you can ask some pretty sophisticated and cutting-edge questions with the tools that are available to you on your desktop using freely available data.   
+The topic of bioinformatics is vast.  We easily fill two to three college classes with just the basic material.  However, that does not mean you cannot acquire some basic skills that are very useful, even in the short amount of time available to us in this short-course.   Science is about the questions, and, believe it or now, you can ask some pretty sophisticated and cutting-edge questions with the tools that are available to you on your desktop using freely available data.  
+Keep in mind that bioinformatics is like riding a bicycle.  One can not learn it form talking about it. The only way to learn requisite skills is to get your hands on some data.  We will therefore spend minimal time in a ‘lecture’ style environment.  We will provide ~20 minutes of context at the beginning of each section and then proceed to working with some real data.  Our hope is that every person can choose a dataset from the iMicrobe website and try to learn some basic facts about the sample.
+The course will have four sections
+
+## Section 1:  Basic Sequence Handling, QC, and Sequence Assembly
+
+
+
+## Section 2: 
+
+
+
+## Section 3: 
+
+
+
+## Section 4: 
+
