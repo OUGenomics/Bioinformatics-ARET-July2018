@@ -17,4 +17,8 @@ The result, of course, is a tremendous amount of sequence data.  These data are 
 
 ![Number of Bases in GenBank as Individual Reads or Whole Genome Sequences](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/GenBank_size.png)
 
-Several other specialty databases have sprung up over the years to handle portions of GenBank that is used by a specialized research community.  We will be using one of these alternate repositories, [iMicrobe](https://www.imicrobe.us/), for this short-course (more on this in the activities).
+Several specialty databases have sprung up over the years to handle portions of GenBank that are used by specialized research communities.  For example, if one studies the genome of teh rice plant, it may not be encessary to include bacterial genomes in a reference database.  We will be using one of these alternate repositories, [iMicrobe](https://www.imicrobe.us/), for this short-course (more on this in the activities).
+
+#TOPICS
+
+The topic of bioinformatics is vast.  We could easily fill two to three college classes with just the basic material.  However, that does not mean one needs to have all this knowledge to be able to achieve individual research objectives.  
