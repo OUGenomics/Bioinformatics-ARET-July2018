@@ -4,6 +4,6 @@ Don’t leave without a network ! Here is a list of participants in the workshop
 
 |NAME   |SCHOOL   |EMAIL   |PHONE   |COMMENTS   |
 |---|---|---|---|---|
-|Boris Wawrik   |OU   |bwawrik@ou.edu   |405-352-8596   |sequence jedi   |
-|Heather M. Shaffrey   |OU   |hshaffrey@ou.edu   |405-325-1938   |education K-20 jedi   |
+|Boris Wawrik   |OU   |bwawrik@ou.edu   |405-352-8596   |sequence jedi master  |
+|Heather M. Shaffrey   |OU   |hshaffrey@ou.edu   |405-325-1938   |K-20 jedi master   |
 |   |   |   |   |   |
