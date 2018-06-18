@@ -13,7 +13,7 @@ The past decade has seen a tremendous shift in the way biological science is con
 ![Cost of Sequencing a Human Genome](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Historic_cost_of_sequencing_a_human_genome.svg/1200px-Historic_cost_of_sequencing_a_human_genome.svg.png)
 
 
-The result, or course, is a tremendous amount of sequence data.  These data are historically deposited and made available to the public through the [National Center for Biotechnology Information]( https://www.ncbi.nlm.nih.gov/), which maintain [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) our most important data repository.  As you can imagine, the [size of GenBank]( https://www.ncbi.nlm.nih.gov/genbank/statistics/) has increase dramatically over recent  years.
+The result, of course, is a tremendous amount of sequence data.  These data are historically deposited and made available to the public through the [National Center for Biotechnology Information]( https://www.ncbi.nlm.nih.gov/), which maintain [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) our most important data repository.  As you can imagine, the [size of GenBank]( https://www.ncbi.nlm.nih.gov/genbank/statistics/) has increase dramatically over recent  years.
 
 ![Number of Bases in GenBank as Individual Reads or Whole Genome Sequences](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/GenBank_size.png)
 
