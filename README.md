@@ -27,7 +27,7 @@ Keep in mind that bioinformatics is like riding a bicycle.  One can not learn it
 
 The course will have four sections:
 
-## Prerequisites: Basic Linux Tutorial and Docker
+## Prerequisites: [Basic Linux Tutorial and Docker](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/Prerequisites/readme.md)
 
 Before we can proceed with the exercises, everyone should be familiar with some basic [linux](https://en.wikipedia.org/wiki/Linux) command line functionality.  Everyone also must install [docker](https://www.docker.com/) and pull the bioinformatics repository we will be using.
 
