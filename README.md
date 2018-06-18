@@ -28,17 +28,17 @@ The course will have four sections:
 
 ## Section 1:  Basic Sequence Handling, QC, and Sequence Assembly
 
-The goal will be to learn how to download a sequence file from a repository, view it, and assess its quality statistics.  We will then test two assembly programs and choose one for whole genome assembly based on the statistics we generate.  The results from assembly will be uploaded to RAST. 
+The goal will be to learn how to download a sequence file from a repository, view it, and assess its quality statistics.  We will then test two [assembly](https://en.wikipedia.org/wiki/Sequence_assembly) [programs](https://en.wikipedia.org/wiki/De_novo_sequence_assemblers) and choose one for whole genome assembly based on the statistics we generate.  The results from assembly will be uploaded to [RAST](http://rast.nmpdr.org/). 
 
 ## Section 2:  16S Phylogenetic Analysis
 
-We will learn how to make a robust species identification using DNA sequence data.  We will start with a bacterial genome and extract the full length 16S rRNA gene from it.  We will then use a web-tool to construct a phylogenetic tree.
+We will learn how to make a robust [species](https://en.wikipedia.org/wiki/Bacterial_taxonomy) identification using DNA sequence data.  We will start with a bacterial genome and extract the full length 16S rRNA gene from it.  We will then use a web-tool to construct a [phylogenetic tree](https://en.wikipedia.org/wiki/Phylogenetics).
 
 ## Section 3:  Microbiome Analysis
 
-The phylogenetic analysis from Section 2 is not feasible when one has thousands of sequences.  You will learn how to analyze the composition of a complex microbiome.  We will start with a metagenome from iMicrobe.  We will then learn how to blast search the data for 16S containing reads and use microbiome software to assign identities.
+The phylogenetic analysis from Section 2 is not feasible when one has thousands of sequences.  You will learn how to analyze the composition of a complex [microbiome](https://en.wikipedia.org/wiki/Microbiota) (a.k.a microbial community).  We will start with a [metagenome](https://en.wikipedia.org/wiki/Metagenomics) from iMicrobe.  We will then learn how to blast search the data for 16S containing reads and use microbiome software to assign identities.
 
 ## Section 4:  Genome Analysis
 
-Hopefully, the RAST annotation is complete. It will allow us to look at functional capacity and metabolic mapping.  We will also learn some basic tools of the trade like predicting protein coding, rRNA, and tRNA genes.  From here we can get creative and might look the presence of specific functional genes or a pairwise genome comparison, if time allows.
+Hopefully, the RAST annotation is complete. It will allow us to look at functional capacity and [metabolic network](https://en.wikipedia.org/wiki/Metabolic_network) mapping.  We will also learn some basic tools of the trade like predicting protein coding, [rRNA](https://en.wikipedia.org/wiki/Ribosomal_RNA), and [tRNA](https://en.wikipedia.org/wiki/Transfer_RNA) genes.  From here we can get creative and might look the presence of specific functional genes or a pairwise genome comparison, if time allows.
 
