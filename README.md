@@ -10,3 +10,5 @@ The past decade has seen a tremendous shift in the way biological science is con
  Arguably the most important aspect of biology data revolution has been the ability to sequence whole genomes.  While the first full genome sequence (that of [bacteriophage φX174]( https://en.wikipedia.org/wiki/Phi_X_174)) became available as early as 1977, the ability to sequence the complete genome of an organism remained out of reach for the average research project until very recent advances in DNA sequencing lowered the cost dramatically.  A series of technologies pushed the envelope in this area beyond the classical [dideoxy-Sanger sequencing]( https://en.wikipedia.org/wiki/Sanger_sequencing) methodology, lowereing the cost from dollars to fractions of a penny per kilobase of sequence data.
  
  
+![Cost of Sequencing a Human Genome](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Historic_cost_of_sequencing_a_human_genome.svg/1200px-Historic_cost_of_sequencing_a_human_genome.svg.png)
+
