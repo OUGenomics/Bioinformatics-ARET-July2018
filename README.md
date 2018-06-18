@@ -21,4 +21,4 @@ Several specialty databases have sprung up over the years to handle portions of 
 
 # TOPICS
 
-The topic of bioinformatics is vast.  We could easily fill two to three college classes with just the basic material.  However, that does not mean one needs to have all this knowledge to be able to achieve individual research objectives.  
+The topic of bioinformatics is vast.  We easily fill two to three college classes with just the basic material.  However, that does not mean you cannot acquire some basic skills that are very useful, even in the short amount of time available to us in this short-course.   Science is about the questions, and, believe it or now, you can ask some pretty sophisticated and cutting-edge questions with the tools that are available to you on your desktop using freely available data.   
