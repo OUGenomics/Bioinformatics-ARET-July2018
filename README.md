@@ -12,3 +12,9 @@ The past decade has seen a tremendous shift in the way biological science is con
  
 ![Cost of Sequencing a Human Genome](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e7/Historic_cost_of_sequencing_a_human_genome.svg/1200px-Historic_cost_of_sequencing_a_human_genome.svg.png)
 
+
+The result, or course, is a tremendous amount of sequence data.  These data are historically deposited and made available to the public through the [National Center for Biotechnology Information]( https://www.ncbi.nlm.nih.gov/), which maintain [GenBank](https://www.ncbi.nlm.nih.gov/genbank/) our most important data repository.  As you can imagine, the [size of GenBank]( https://www.ncbi.nlm.nih.gov/genbank/statistics/) has increase dramatically over recent  years.
+
+![Number of Bases in GenBank as Individual Reads or Whole Genome Sequences]()
+
+Several other specialty databases have sprung up over the years to handle portions of GenBank that is used by a specialized research community.  We will be using one of these alternate repositories, [iMicrobe](https://www.imicrobe.us/), for this short-course (more on this in the activities).
