@@ -67,17 +67,32 @@ For more examples and ideas, visit:
 PS C:\Users\your_user_name>
 ```
 
-Now follow the instruction and launch an unbuntu linux container.  First download it with:
+Now follow the instruction and launch an unbuntu linux container.  First download it with this command:
 
 ```sh
 docker pull ubuntu
 ```
 
-Then launch it with:
+This should produce the following output:
+
 ```sh
-$ docker run -it ubuntu bash
+Using default tag: latest
+latest: Pulling from library/ubuntu
+6b98dfc16071: Pull complete
+4001a1209541: Pull complete
+6319fc68c576: Pull complete
+b24603670dc3: Pull complete
+97f170c87c6f: Pull complete
+Digest: sha256:5f4bdc3467537cbbe563e80db2c3ec95d548a9145d64453b06939c4592d67b6d
+Status: Downloaded newer image for ubuntu:latest
 ```
 
+You can launch your shiny new docker with:
+```sh
+docker run -it ubuntu bash
+```
+
+I reccommend that you complete tutorial 1 to 4 of the general linux tutorials below.  Another good resource are the Software Carpentry unix toturials. 
 
 ### GENERAL LINUX TUTORIALS
 
