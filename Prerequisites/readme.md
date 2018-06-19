@@ -18,7 +18,7 @@ https://docs.docker.com/docker-for-windows/install/
 
 You will be asked to to log into your account before you can download the installer.
 
-(login first)[https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/docker_login_before_Download.PNG]
+!(login first)[https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/docker_login_before_Download.PNG]
 
 
 
