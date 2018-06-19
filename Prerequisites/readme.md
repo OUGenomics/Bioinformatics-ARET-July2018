@@ -10,17 +10,14 @@ https://hub.docker.com/
 Fill choose a user name and create an account:
 ![creating a docker acccount ](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/docker_create_account.PNG)
 
-Don’t forget to accept the privacy policy and terms of service.  Once you create your account, follow the instructions in the email that will be sent to you to finish the account setup.  Then go to the docker home page and log in:
+Don’t forget to accept the privacy policy and terms of service.  Once you create your account, follow the instructions in the email that will be sent to you to finish the account setup.  
 
-https://hub.docker.com/
-
-After loging in, you can navigate to the homepage for the Windows installation, which can be found here:
+Then navigate to the homepage for the Windows installation, which can be found here:
 
 https://docs.docker.com/docker-for-windows/install/
 
+You will be asked to to log into your account before you can download the installer.
 
-
-https://store.docker.com/editions/community/docker-ce-desktop-windows
 
 
 
