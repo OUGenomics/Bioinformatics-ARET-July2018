@@ -22,10 +22,10 @@ Now create a data directory.  You can give it any name you wish; just keep track
 mkdir ~/data
 ```
 
-Start your docker by typing
+Start your docker by typing:
 
 ```sh
-docker run -t -i -v /data:/data bwawrik/bioinformatics:latest
+docker run -t -i -v ~/data:/data bwawrik/bioinformatics:latest
 ```
 
 Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accesible to windows.
