@@ -7,6 +7,8 @@ First things first.  In all liklyhood you do not own a computer that runs linux 
 
 https://hub.docker.com/
 
+Fill choose a user name and create an account:
+![https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/docker_create_account.PNG]
 
 
 
