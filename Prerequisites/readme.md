@@ -30,7 +30,7 @@ Save the file. Then locate it, double click it, and follow the instructions for 
 
 Once docker is started, you'll need to open a powershell window.  I pin my powershell icon to the taskbar. If you don't know where to find it, click the windows icon and type 'powershell' into the search bar:
 
-!(find powershell)[https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/finding_powershell.png]
+![find powershell](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/finding_powershell.png)
 
 
 
