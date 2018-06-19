@@ -67,10 +67,17 @@ For more examples and ideas, visit:
 PS C:\Users\your_user_name>
 ```
 
-Now follow the instruction and launch an unbuntu linux container.  
+Now follow the instruction and launch an unbuntu linux container.  First download it with:
 
-$ docker pull ubuntu
+```sh
+docker pull ubuntu
+```
+
+Then launch it with:
+```sh
 $ docker run -it ubuntu bash
+```
+
 
 ### GENERAL LINUX TUTORIALS
 
