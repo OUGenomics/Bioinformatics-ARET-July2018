@@ -20,7 +20,11 @@ You will be asked to to log into your account before you can download the instal
 
 ![login first](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/docker_login_before_Download.PNG)
 
+Once you are logged in, download the stable windows client:
 
+[stable client](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/docker_download_Windos_Stable.PNG)
+
+Save the file. Then locate it, double click it, and follow the instructions for installation.
 
 
 
