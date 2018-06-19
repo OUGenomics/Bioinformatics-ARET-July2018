@@ -28,10 +28,13 @@ Save the file. Then locate it, double click it, and follow the instructions for 
 
 ![start docker](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/docker_icon.PNG)
 
-Once docker is started, you'll need to open a powershell window.  I pin my powershell icon to the taskbar. If you don't know where to find it, click the windows icon and type 'powershell' into the search bar:
+Once docker is started (this can take a minute or two; be patient), you'll need to open a powershell window.  I pin my powershell icon to the taskbar. If you don't know where to find it, click the windows icon and type 'powershell' into the search bar:
 
 ![find powershell](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/finding_powershell.png)
 
+Test your docker installation by typing:
+
+>docker run hello-world
 
 
 ### GENERAL LINUX TUTORIALS
