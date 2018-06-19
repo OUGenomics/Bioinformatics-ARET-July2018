@@ -92,6 +92,19 @@ You can launch your shiny new docker with:
 docker run -it ubuntu bash
 ```
 
+This should produce a prompt that looks something like this:
+
+```sh
+root@ad92db1cbceb:/#
+```
+If this is your first time using linux, type this command to go to the user home directory before proceeding with the tutorials.
+
+```sh
+cd ~
+```
+
+
+
 I reccommend that you complete tutorial 1 to 4 of the general linux tutorials below.  Another good resource are the Software Carpentry unix toturials. 
 
 ### GENERAL LINUX TUTORIALS
