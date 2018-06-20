@@ -116,8 +116,10 @@ As you can see, there are no illumina adapters in the data -- good, they did a g
 If your data does not contain any illumina adapter contamination, download my two example data files, run fastqc on them and view the output:
 
 
-
-
+```sh
+wget http://mgmic.oscer.ou.edu/sequence_data/100k.1.fastq
+wget http://mgmic.oscer.ou.edu/sequence_data/100k.2.fastq
+```
 
 
 ## REMOVING ILLUMINA ADAPTERS (IF PRESENT)
