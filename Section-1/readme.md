@@ -19,14 +19,14 @@ cd ~
 Now create a data directory.  You can give it any name you wish; just keep track:
 
 ```sh
-mkdir ~/data
+mkdir /docker_data/data/
 ```
 
 Start your docker by typing:
 
 ```sh
-cd ~
-docker run -t -i -v data:/data bwawrik/bioinformatics:latest
+cd /docker_data/data
+docker run -t -i -v c:/docker_data/data/:/data bwawrik/bioinformatics:latest
 ```
 
 Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accesible to windows.
