@@ -45,7 +45,7 @@ Lets search for some single cell genomics data from the oceans by using the sear
 
 This will give us some options.  I will select entry 13 for demonstration, but for the purpose of the exercise, I'd like everyone to pick a different one.
 
-Genome sequencing of marine microorganism: single cell AG-341-O18
+[Genome sequencing of marine microorganism: single cell AG-341-O18] (https://www.ncbi.nlm.nih.gov/sra/SRX3972923[accn])
 1 ILLUMINA (NextSeq 500) run: 4.8M spots, 1.3G bases, 650.8Mb downloads
 Accession: SRX3972923
 
