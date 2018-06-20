@@ -66,9 +66,9 @@ https://ncbi.github.io/sra-tools/fastq-dump.html
 For example:
 
 ```sh
-fastq-dump -I --split-files SRX3973273	--gzip
+fastq-dump -I --split-files SRX3973296 --gzip -X 400000
 ```
-Where SRX3973273	represents the accession number of the data set we are trying to download.  Be carefull ! A RUN may contain several EXPERIMENTS and a BIOSAMPLE or BIOPROJECT may contain several RUNS, so you could end up pullin a lot of data.
+Where SRX3973296 represents the accession number of the data set we are trying to download.  Be carefull ! A RUN may contain several EXPERIMENTS and a BIOSAMPLE or BIOPROJECT may contain several RUNS, so you could end up pullin a lot of data. In this case, we are using the -X flag to give ourselves about 400000 paired reads to work with.  
 
 the "--gzip" portion of the command means that the file will be downloaded in compressed format.  
 
@@ -81,12 +81,19 @@ ls
 You should get an output something like this:
 
 ```sh
-file 1
-file 2
-
+SRX3973296_1.fastq.gz SRX3973296_2.fastq.gz
 ```
 
+Lets uncompress the files:
 
+```sh
+gunzip *.gz
+```
+Your direcotry content should now be this:
+
+```sh
+SRX3973296_1.fastq SRX3973296_2.fastq
+```
 ## ASSESSING THE QUALITY OF THE DATA
 
 
