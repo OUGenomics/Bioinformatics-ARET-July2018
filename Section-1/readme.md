@@ -25,7 +25,8 @@ mkdir ~/data
 Start your docker by typing:
 
 ```sh
-docker run -t -i -v ~/data:/data bwawrik/bioinformatics:latest
+cd ~
+docker run -t -i -v data:/data bwawrik/bioinformatics:latest
 ```
 
 Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accesible to windows.
