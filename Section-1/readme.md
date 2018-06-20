@@ -159,6 +159,12 @@ Ray -k31 -n 4 -p fs.fastq rs.fastq -o ray_31/
 
 If you want to do this with multiple cores, control the number of cores with the -n flag (this will depend on how many cores you have assigned using docker).
 
+NOTE: If you are having trouble seeing the contents of teh ray output folder in your web browswer you need to give permission:
+
+```sh
+chmod 777 ray_31/
+```
+
 
 ### Velvet Assembly
 
