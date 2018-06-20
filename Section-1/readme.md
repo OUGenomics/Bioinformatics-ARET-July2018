@@ -118,8 +118,13 @@ If your data does not contain any illumina adapter contamination, download my tw
 
 ```sh
 wget http://mgmic.oscer.ou.edu/sequence_data/100k.1.fastq
-wget http://mgmic.oscer.ou.edu/sequence_data/100k.2.fastq
+fastqc 100k.1.fastq
 ```
+
+Wiew the data in your web browser.  As you can see, there is significant aounts of illumina adapater contamination in this data set.
+
+
+
 
 
 ## REMOVING ILLUMINA ADAPTERS (IF PRESENT)
