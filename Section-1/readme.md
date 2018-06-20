@@ -2,7 +2,7 @@
 
 ### Downloading and launching a docker file
 
-Lests start by getting all the bioinforamtics software you'll need.  Open your powershell and enter:
+Lets start by getting all the bioinforamtics software you'll need.  Open your powershell and enter:
 
 ```sh
 docker pull bwawrik/bioinformatics:latest
@@ -29,7 +29,7 @@ cd /docker_data/data
 docker run -t -i -v c:/docker_data/data/:/data bwawrik/bioinformatics:latest
 ```
 
-Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accesible to windows.
+Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accessible to windows.
 
 ```sh
 NOTE: IF YOU ARE HAVING A PERMISSION ERROR AT THIS STAGE -- HERE IS HOW TO FIX IT:
@@ -58,7 +58,7 @@ Some other data sets from the same project can be found here:
 
 https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=SRP141175
 
-Using the NCBI website is far form intuitive, so don't get discouraged.  Even I will frequenlt scratch my head why the site just sent me in circles ! Be pateint, and you'll find what you need.
+Using the NCBI website is far form intuitive, so don't get discouraged.  Even I will frequently scratch my head why the site just sent me in circles ! Be patient, and you'll find what you need.
 
 In order to download data, you will need to use fastq-dump:
 https://ncbi.github.io/sra-tools/fastq-dump.html
@@ -68,7 +68,7 @@ For example:
 ```sh
 fastq-dump -I --split-files SRX3973296 --gzip -X 400000
 ```
-Where SRX3973296 represents the accession number of the data set we are trying to download.  Be carefull ! A RUN may contain several EXPERIMENTS and a BIOSAMPLE or BIOPROJECT may contain several RUNS, so you could end up pullin a lot of data. In this case, we are using the -X flag to give ourselves about 400000 paired reads to work with.  
+Where SRX3973296 represents the accession number of the data set we are trying to download.  Be careful ! A RUN may contain several EXPERIMENTS and a BIOSAMPLE or BIOPROJECT may contain several RUNS, so you could end up pulling a lot of data. In this case, we are using the -X flag to give ourselves about 400000 paired reads to work with.  
 
 the "--gzip" portion of the command means that the file will be downloaded in compressed format.  
 
@@ -103,14 +103,14 @@ fastqc SRX3973296_1.fastq
 fastqc SRX3973296_2.fastq
 ```
 
-This should create two HTML files you can view in firefox by locating your data/ directory with you web browser. I will dicuss the outbput in class, but here is an example of the qScore and adapter plots:
+This should create two HTML files you can view in Firefox by locating your data/ directory with you web browser. I will discuss the output in class, but here is an example of the qScore and adapter plots:
 
 ![qscore](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/SRX3973273_1_per_base_quality.png)
 
 ![adapters](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/SRX3973273_1_adapter_content.png)
 
 
-As you can see, there are no illumina adapters in the data -- good, they did a good job removing them.  However, there is a fair amount of data that is below a threshold of Q30.  We will remove this from the data befor proceeding.
+As you can see, there are no illumina adapters in the data -- good, they did a good job removing them.  However, there is a fair amount of data that is below a threshold of Q30.  We will remove this from the data before proceeding.
 
 
 If your data does not contain any illumina adapter contamination, download my two example data files, run fastqc on them and view the output:
@@ -123,7 +123,7 @@ fastqc diox_f_50000.fastq
 fastqc diox_r_50000.fastq
 ```
 
-Wiew the data in your web browser.  As you can see, there is significant Illumina adapater contamination in this data set.
+View the data in your web browser.  As you can see, there is significant Illumina adapter contamination in this data set.
 
 ![trueseq contamination](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/trueseq_adapter_contamination.PNG)
 
@@ -141,7 +141,7 @@ Lets benchmark two different assembly programs with your data to decide which on
 head f.fastq -n 80000 > fs.fastq
 head r.fastq -n 80000 > rs.fastq
 ```
-This should give you about 40,000 paired reads. These are partial files to allow the assembly to complete in a reasonable amount of time. Together the files contain about 5*10^6 bp of sequence, which is about 1x coverage of a typical bacerial genome.  For a good assmebly of a whole genome, you would typically aim for 100-200X coverage, but even 50X will yield a decent assembly.
+This should give you about 40,000 paired reads. These are partial files to allow the assembly to complete in a reasonable amount of time. Together the files contain about 5*10^6 bp of sequence, which is about 1x coverage of a typical bacterial genome.  For a good assembly of a whole genome, you would typically aim for 100-200X coverage, but even 50X will yield a decent assembly.
 
 ### Ray Assembly
 
@@ -157,7 +157,7 @@ Ray -k31 -n 4 -p fs.fastq rs.fastq -o ray_31/
 
 If you want to do this with multiple cores, control the number of cores with the -n flag (this will depend on how many cores you have assigned using docker).
 
-NOTE: If you are having trouble seeing the contents of teh ray output folder in your web browswer you need to give permission:
+NOTE: If you are having trouble seeing the contents of the Ray output folder in your web browser you need to give permission:
 
 ```sh
 chmod 777 ray_31/
