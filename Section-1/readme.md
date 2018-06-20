@@ -129,7 +129,38 @@ View the data in your web browser.  As you can see, there is significant Illumin
 
 ## REMOVING ILLUMINA ADAPTERS (IF PRESENT)
 
-OK, lests clean some of this data up. 
+OK, lests clean some of this data up. The first thing you will need to do is to create a .conf file for the program that will remove the adapters.  Open the html for the fastqc report in a web browser.  Then grab each of the over-represented sequences and put them in a notepad text file.  The final file, should look something like this:
+
+```sh
+-b GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT
+-b GATCGGAAGAGCACACGTCTGAACTCCAGTCAC
+-b AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
+-b AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
+-b NNNNNNN
+-e 0.15
+-q 20
+-n 1
+```
+Where each line that starts with a '-b' represents an adapter sequence.  In the above example, this was adapter 'GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT', which I have added as the first line.  I've added a few other common adapters for good measure.  The line '-b NNNNNNN' trims poor quality sequences.  We also need -e -q and -n parameters.
+
+Now, go back to powersheell and type:
+
+```sh
+nano
+```
+
+This brings up a text editor in linux.  Cut and paste the text from your notepad to the nano text editor. Then press 'control-O' (both keys at the same time).  It will prompt you to name the file.  Name it 'adapters.conf'. Press enter.  Then press 'control-x' to exit the editor.  You may be prompted to save again.
+
+
+
+#-----------------------------------------------------------------------------
+#--write adapter file---------------------------------------------------------
+#-----------------------------------------------------------------------------
+
+my $outfile_name = $ResultDirectory."/temp/".$Ffilename.".conf";
+
+WriteArrayToFile ($outfile_name, @adapter_array);
+
 
 
 
