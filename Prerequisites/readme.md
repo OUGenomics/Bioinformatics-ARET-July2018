@@ -115,3 +115,14 @@ http://www.ee.surrey.ac.uk/Teaching/Unix/
 
 http://swcarpentry.github.io/shell-novice/
 
+
+## SRA TOOL
+Finally, you will need one more piece of software – the Short Read Archive Download Utility.  This will allow  you to retrieve data from the NCBI public repository.  The tool can be found here:
+
+https://trace.ncbi.nlm.nih.gov/Traces/sra/sra.cgi?view=software
+
+Select the MS Windows 64 bit architechture.  Download the file,locate it, and then right click to 'EXTRACT HERE'. This will create a folder called "sratoolkit.2.9.1-win64".
+
+
+
+
