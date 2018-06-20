@@ -96,6 +96,16 @@ SRX3973296_1.fastq SRX3973296_2.fastq
 ```
 ## ASSESSING THE QUALITY OF THE DATA
 
+First, lets run the QC profiler FASTQC on your data:
+
+```sh
+fastqc SRX3973296_1.fastq 
+fastqc SRX3973296_2.fastq
+```
+
+This should create two HTML files you can view in firefox by locating your data/ directory with you web browser. I will dicuss the outbput in class, but here is an example of the qScore plot:
+
+![]()
 
 
 
