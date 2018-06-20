@@ -66,8 +66,28 @@ https://ncbi.github.io/sra-tools/fastq-dump.html
 For example:
 
 ```sh
-fastq-dump -I --split-files SRR7041300
+fastq-dump -I --split-files SRX3973273	--gzip
 ```
-Where SRR7041300 represents the accession number of the data set we are trying to download.
+Where SRX3973273	represents the accession number of the data set we are trying to download.  Be carefull ! A RUN may contain several EXPERIMENTS and a BIOSAMPLE or BIOPROJECT may contain several RUNS, so you could end up pullin a lot of data.
+
+the "--gzip" portion of the command means that the file will be downloaded in compressed format.  
+
+Check your folder contents:
+
+```sh
+ls
+```
+
+You should get an output something like this:
+
+```sh
+file 1
+file 2
+
+```
+
+
+
+
 
 ![]()
