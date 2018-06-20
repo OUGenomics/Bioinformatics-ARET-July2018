@@ -30,26 +30,3 @@ docker run -t -i -v ~/data:/data bwawrik/bioinformatics:latest
 
 Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accesible to windows.
 
-
-## Identifying and Downloading a Sequence File
-
-Let go to the [iMicrobe website](https://www.imicrobe.us/). Choose browse to look at the different data sets that are available:
-
-![choose browse on imicrobe](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/imicrobe_home.PNG)
-
-For the purpose of this exercise, we will find some data for a bacterial or viral genome (isolate).  Browse the data [by project](https://www.imicrobe.us/#projects).  A good set of data
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-download a sequence file from a repository, view it, and assess its quality statistics. We will then test two assembly programs and choose one for whole genome assembly based on the statistics we generate. The results from assembly will be uploaded to RAST.
