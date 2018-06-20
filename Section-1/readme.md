@@ -103,9 +103,9 @@ fastqc SRX3973296_1.fastq
 fastqc SRX3973296_2.fastq
 ```
 
-This should create two HTML files you can view in firefox by locating your data/ directory with you web browser. I will dicuss the outbput in class, but here is an example of the qScore plot:
+This should create two HTML files you can view in firefox by locating your data/ directory with you web browser. I will dicuss the outbput in class, but here is an example of the qScore and adapter plots:
 
-![]()
+![qscore](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/SRX3973273_1_per_base_quality.png)
 
 
 
