@@ -52,9 +52,11 @@ Accession: SRX3972923
 In order to download data, you will need to use fastq-dump:
 https://ncbi.github.io/sra-tools/fastq-dump.html
 
+For example:
+
 ```sh
 fastq-dump -I --split-files SRR7041300
 ```
-SRR7041300 represents the accession number of the data set we are trying to download.
+Where SRR7041300 represents the accession number of the data set we are trying to download.
 
 ![]()
