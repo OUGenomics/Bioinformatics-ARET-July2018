@@ -151,15 +151,19 @@ nano
 
 This brings up a text editor in linux.  Cut and paste the text from your notepad to the nano text editor. Then press 'control-O' (both keys at the same time).  It will prompt you to name the file.  Name it 'adapters.conf'. Press enter.  Then press 'control-x' to exit the editor.  You may be prompted to save again.
 
+My directory contents look like this, at this juncture:
 
 
-#-----------------------------------------------------------------------------
-#--write adapter file---------------------------------------------------------
-#-----------------------------------------------------------------------------
+```sh
+[root@688409c9448f data]# ls
+IMG_0002.pdf              SRX3973296_2.fastq        diox_f_50000.fastq        diox_r_50000_fastqc.html
+SRX3973296_1.fastq        SRX3973296_2_fastqc.html  diox_f_50000_fastqc.html  diox_r_50000_fastqc.zip
+SRX3973296_1_fastqc.html  SRX3973296_2_fastqc.zip   diox_f_50000_fastqc.zip
+SRX3973296_1_fastqc.zip   adapters.conf             diox_r_50000.fastq
+```
 
-my $outfile_name = $ResultDirectory."/temp/".$Ffilename.".conf";
 
-WriteArrayToFile ($outfile_name, @adapter_array);
+
 
 
 
