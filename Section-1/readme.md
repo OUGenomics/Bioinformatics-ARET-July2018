@@ -87,7 +87,77 @@ file 2
 ```
 
 
+## ASSESSING THE QUALITY OF THE DATA
 
 
 
-![]()
+
+## REMOVING ILLUMINA ADAPTERS (IF PRESENT)
+
+
+
+
+
+## RUNNING ASSEMBLIES
+
+Lets benchmark two different assembly programs with your data to decide which one we should use.  First, make a small sub-set of your data that contains about 10% of the reads.
+
+```sh
+head f.fastq -n 80000 > fs.fastq
+head r.fastq -n 80000 > rs.fastq
+```
+This should give you about 40,000 paired reads. These are partial files to allow the assembly to complete in a reasonable amount of time. Together the files contain about 5*10^6 bp of sequence, which is about 1x coverage of a typical bacerial genome.  For a good assmebly of a whole genome, you would typically aim for 100-200X coverage, but even 50X will yield a decent assembly.
+
+### Ray Assembly
+
+*Brief [description](http://denovoassembler.sourceforge.net/index.html) of Ray:*
+
+> Ray is a parallel software that computes de novo genome assemblies with next-generation sequencing data.  Ray is written in C++ and can run in parallel on numerous interconnected computers using the message-passing interface (MPI) standard.
+
+Run a [Ray](http://denovoassembler.sourceforge.net/manual.html) assembly with a [k-mer](https://en.wikipedia.org/wiki/K-mer) setting of 31 as follows
+  
+```sh
+Ray -k31 -p fs.fastq rs.fastq -o ray_31/
+```
+
+If you wanted to do this with multiple cores do this (e.g. with six cores; this will depend on how many cores you have assigned using docker):
+
+```sh
+mpiexec -n 6 Ray -k31 -p fs.fastq fs.fastq -o ray_31/
+```
+
+### Velvet Assembly
+
+*Brief [description](https://www.ebi.ac.uk/~zerbino/velvet/) of Velvet:*
+
+>Velvet is a de novo genomic assembler specially designed for short read sequencing technologies, such as Solexa or 454, developed by Daniel Zerbino and Ewan Birney at the European Bioinformatics Institute (EMBL-EBI), near Cambridge, in the United Kingdom.  Velvet currently takes in short read sequences, removes errors then produces high quality unique contigs. It then uses paired-end read and long read information, when available, to retrieve the repeated areas between contigs.
+
+Let's try a [Velvet](https://www.ebi.ac.uk/~zerbino/velvet/) assembly.
+
+```sh
+velveth velvet/ 31 -shortPaired -fastq -separate fs.fastq rs.fastq
+velvetg velvet/
+```
+
+Download the [N50](https://en.wikipedia.org/wiki/N50_statistic) perl script
+ 
+```sh
+wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/N50.pl
+```
+
+Then assess the N50 stats on both assemblies.
+
+```sh
+perl N50.pl velvet/contigs.fa
+perl N50.pl ray_31/Contigs.fasta
+```
+
+### Self-Examination
+Which assembly is faster ? Which assembly is better ? Why ?
+
+
+
+
+### Now Lets assemble a larger portion of your data
+
+
