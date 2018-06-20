@@ -125,13 +125,11 @@ fastqc diox_r_50000.fastq
 
 Wiew the data in your web browser.  As you can see, there is significant Illumina adapater contamination in this data set.
 
-
-
-
+!(trueseq contamination)[https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/trueseq_adapter_contamination.PNG]
 
 ## REMOVING ILLUMINA ADAPTERS (IF PRESENT)
 
-
+OK, lests clean some of this data up. 
 
 
 
