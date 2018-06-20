@@ -107,6 +107,17 @@ This should create two HTML files you can view in firefox by locating your data/
 
 ![qscore](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/SRX3973273_1_per_base_quality.png)
 
+![adapters](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/SRX3973273_1_adapter_content.png)
+
+
+As you can see, there are no illumina adapters in the data -- good, they did a good job removing them.  However, there is a fair amount of data that is below a threshold of Q30.  We will remove this from the data befor proceeding.
+
+
+If your data does not contain any illumina adapter contamination, download my two example data files, run fastqc on them and view the output:
+
+
+
+
 
 
 ## REMOVING ILLUMINA ADAPTERS (IF PRESENT)
