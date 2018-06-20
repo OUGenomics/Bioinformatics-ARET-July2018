@@ -124,6 +124,6 @@ RAST is a very useful tool for genome annotation.  I'd like everyone in the clas
 
 http://rast.nmpdr.org/?page=Register
 
-[enter RAST account info](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/RAST_create_account.PNG)
+![enter RAST account info](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/RAST_create_account.PNG)
 
 Use the University of Oklahoma and the K-20 Center as your affiliation.
