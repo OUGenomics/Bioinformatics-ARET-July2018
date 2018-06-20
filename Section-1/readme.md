@@ -154,14 +154,11 @@ This should give you about 40,000 paired reads. These are partial files to allow
 Run a [Ray](http://denovoassembler.sourceforge.net/manual.html) assembly with a [k-mer](https://en.wikipedia.org/wiki/K-mer) setting of 31 as follows
   
 ```sh
-Ray -k31 -p fs.fastq rs.fastq -o ray_31/
+Ray -k31 -n 4 -p fs.fastq rs.fastq -o ray_31/
 ```
 
-If you wanted to do this with multiple cores do this (e.g. with six cores; this will depend on how many cores you have assigned using docker):
+If you want to do this with multiple cores, control the number of cores with the -n flag (this will depend on how many cores you have assigned using docker).
 
-```sh
-mpiexec -n 6 Ray -k31 -p fs.fastq fs.fastq -o ray_31/
-```
 
 ### Velvet Assembly
 
