@@ -30,10 +30,10 @@ docker run -t -i -v ~/data:/data bwawrik/bioinformatics:latest
 
 Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accesible to windows.
 
----
+-
 NOTE: IF YOU ARE HAVING A PERMISSION ERROR AT THIS STAGE -- HERE IS HOW TO FIX IT:
 http://peterjohnlightfoot.com/docker-for-windows-on-hyper-v-fix-the-host-volume-sharing-issue/
----
+-
 
 Now lets find ourselves some data.  For this we will need to go to the NCBI short read archive:
 
