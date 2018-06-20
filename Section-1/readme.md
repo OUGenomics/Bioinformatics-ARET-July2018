@@ -39,7 +39,7 @@ Select the advanced search:
 
 ![SRA search](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/sra_advanced_search_Step_1.PNG)
 
-Lets search for some single cell genomics data from the oceans by using the search terms 'single cell genome', and 'marine':
+Lets search for some single cell genomics data from the oceans by using the search terms 'single amplified genome', and 'marine':
 
 ![search advanced](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/sra_search_step_2.PNG)
 
