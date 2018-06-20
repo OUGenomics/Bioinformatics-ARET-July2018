@@ -117,11 +117,13 @@ If your data does not contain any illumina adapter contamination, download my tw
 
 
 ```sh
-wget http://mgmic.oscer.ou.edu/sequence_data/100k.1.fastq
-fastqc 100k.1.fastq
+wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/diox_f_50000.fastq
+wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/diox_r_50000.fastq
+fastqc diox_f_50000.fastq
+fastqc diox_r_50000.fastq
 ```
 
-Wiew the data in your web browser.  As you can see, there is significant aounts of illumina adapater contamination in this data set.
+Wiew the data in your web browser.  As you can see, there is significant Illumina adapater contamination in this data set.
 
 
 
