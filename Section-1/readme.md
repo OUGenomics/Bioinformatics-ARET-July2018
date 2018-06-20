@@ -49,5 +49,12 @@ This will give us some options.  I will select entry 13 for demonstration, but f
 1 ILLUMINA (NextSeq 500) run: 4.8M spots, 1.3G bases, 650.8Mb downloads
 Accession: SRX3972923
 
+In order to download data, you will need to use fastq-dump:
+https://ncbi.github.io/sra-tools/fastq-dump.html
+
+```sh
+fastq-dump -I --split-files SRR7041300
+```
+SRR7041300 represents the accession number of the data set we are trying to download.
 
 ![]()
