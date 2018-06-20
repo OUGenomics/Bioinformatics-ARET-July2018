@@ -30,3 +30,10 @@ docker run -t -i -v ~/data:/data bwawrik/bioinformatics:latest
 
 Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accesible to windows.
 
+
+Now lets find ourselves some data.  For this we will need to go to the NCBI short read archive:
+
+https://www.ncbi.nlm.nih.gov/sra
+
+Select the advanced search:
+
