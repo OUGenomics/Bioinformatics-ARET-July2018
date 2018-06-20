@@ -49,6 +49,12 @@ This will give us some options.  I will select entry 13 for demonstration, but f
 1 ILLUMINA (NextSeq 500) run: 4.8M spots, 1.3G bases, 650.8Mb downloads
 Accession: SRX3972923
 
+Some other data sets from the same project can be found here:
+
+https://trace.ncbi.nlm.nih.gov/Traces/study/?acc=SRP141175
+
+Using the NCBI website is far form intuitive, so don't get discouraged.  Even I will frequenlt scratch my head why the site just sent me in circles ! Be pateint, and you'll find what you need.
+
 In order to download data, you will need to use fastq-dump:
 https://ncbi.github.io/sra-tools/fastq-dump.html
 
