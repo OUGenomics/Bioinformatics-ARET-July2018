@@ -302,7 +302,7 @@ http://http://rast.nmpdr.org/
 
 Log in and choose "upload new job":
 
-![]()
+![upload new](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/rast_new.png)
 
 
 
