@@ -27,10 +27,18 @@ This will download the SILVA_132_SSUREF_Nr99 files to your computer, which conta
 
 ### Using BLAST
 
-Perform a BLAST search with your sequence 
-You can quickly compare your sequence to a very comprehensive database of nucleotide sequences by ‘BLASTing” your sequence against the NCBI database.  To do this, go to the NCBI website (http://ncbi.nlm.nih.gov) and select the BLAST function (right hand side of page under “Popular Resources”).  Select a nucleotide blast among the Basic BLAST programs.  This will open the Standard Nucleotide BLAST webpage.  Here, you will upload your fasta file, choose the default ‘Nucleotide collection (nr/nt)’ to search and the default ‘highly similar sequences (megablast)’ program.  Click the “BLAST” button.  
+Once you have retrieved a full length 16S sequence you can quickly get a rough idea what orgnanism you are dealing with by ‘BLASTing” your sequence against the NCBI database.  We'll do this two ways.  We'll use a web-interface, and I will show you how to set up your own blast database locally.  For the web-search, go to the NCBI blast website:
+
+https://blast.ncbi.nlm.nih.gov/Blast.cgi
+
+
+Select the BLASTN function. This will open the Standard Nucleotide BLAST web-page.  Here, you will paste your fasta file, choose the ‘16S rRNA Sequences (Bacteria and Archaea)’ dataase and search and the default ‘highly similar sequences (megablast)’ program.  Click the “BLAST” button.  
 
 You will be directed to a results window, where you will wait for your sequence to be ‘BLASTed’ against the entire nr database.  Once the search is finished, you will see an output that will include a visual of the top 100 BLAST hits.  Below that, you will see the ‘Descriptions’, which includes the Description of each of the top 100 sequences along with statistics of how well your sequence matched those listed.  Key parameters include the Max score, E value and the Identity (%).  You will also see an Accession number.  This link will take you to the GenBank record for the sequence that you choose.  This will contain information about the origin of the sequence that your sequence is very similar to. 
+
+
+
+
 
 
 ### Phhylogenetically informed analysis
