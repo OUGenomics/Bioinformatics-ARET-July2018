@@ -238,11 +238,16 @@ Let's try a [Velvet](https://www.ebi.ac.uk/~zerbino/velvet/) assembly.
 velveth velvet/ 31 -shortPaired -fastq -separate fs.fastq rs.fastq
 velvetg velvet/
 ```
-In all likelihood this just failed for you ! The reason is the need for all reads to be paired in velvet, but some of your reads were dropped by the QC steps above.  A workaround is a perl script I wrote. WARNING - this is not an optimal solution and may fail with very large datasets.
+In all likelihood this just failed for you ! The reason being that velvet needs paired reads, but some of your reads were dropped by the QC steps above.  A workaround is a perl script I wrote. WARNING - this is not an optimal solution and may fail with very large datasets.
 
+```sh
+wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/pair.pl
+```
+Now run this script on your data.  The '20' parameters drops all reads that are shorter than 20 base pairs.
 
-
-
+```sh
+perl pair.pl fs.fastq rs.fastq 20 fs.paired.fastq rs.paired.fastq fs.unpaired.fastq rs.unpaired.fastq
+```
 
 
 
