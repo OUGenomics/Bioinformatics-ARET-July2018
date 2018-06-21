@@ -214,7 +214,7 @@ This should give you about 40,000 paired reads. These are partial files to allow
 Run a [Ray](http://denovoassembler.sourceforge.net/manual.html) assembly with a [k-mer](https://en.wikipedia.org/wiki/K-mer) setting of 31 as follows
   
 ```sh
-Ray -k31 -n 4 -p fs.fastq rs.fastq -o ray_31/
+Ray -k 31 -n 4 -p fs.fastq rs.fastq -o ray_31/
 ```
 If you want to do this with multiple cores, control the number of cores with the -n flag (this will depend on how many cores you have assigned using docker).
 
@@ -243,6 +243,35 @@ Do the same for the other kmer settings.
 My output is as follows:
 
 ```sh
+kmer = 15
+Total length of sequence:       112251 bp
+Total number of sequences:      361
+Number of contigs > 1kb:        15
+N25 stats:                      25% of total sequence length is contained in the 6 sequences >= 3368 bp
+N50 stats:                      50% of total sequence length is contained in the 30 sequences >= 520 bp
+N75 stats:                      75% of total sequence length is contained in the 140 sequences >= 172 bp
+Total GC count:                 38191 bp
+GC %:                           34.02 %
+
+kmer = 25
+Total length of sequence:       107959 bp
+Total number of sequences:      400
+Number of contigs > 1kb:        13
+N25 stats:                      25% of total sequence length is contained in the 7 sequences >= 1767 bp
+N50 stats:                      50% of total sequence length is contained in the 49 sequences >= 314 bp
+N75 stats:                      75% of total sequence length is contained in the 178 sequences >= 156 bp
+Total GC count:                 36696 bp
+GC %:                           33.99 %
+
+kmer = 31
+Total length of sequence:       82607 bp
+Total number of sequences:      263
+Number of contigs > 1kb:        11
+N25 stats:                      25% of total sequence length is contained in the 9 sequences >= 1382 bp
+N50 stats:                      50% of total sequence length is contained in the 41 sequences >= 398 bp
+N75 stats:                      75% of total sequence length is contained in the 122 sequences >= 187 bp
+Total GC count:                 28229 bp
+GC %:                           34.17 %
 
 
 ```
@@ -252,5 +281,20 @@ Which assembly is best ? which kmer setting shoudl you use ? Why ?
 
 
 ### Now Lets assemble a larger portion of your data
+
+Now assemble your whole QCed dataset using the Kmer you deem optimal. We will only keep contigs longer than 500bp for this -- like so:
+
+```sh
+Ray -k 31 -n 4 -minimum-contig-length 500 -p SRX3973296_1.q30.fastq SRX3973296_2.q30.fastq -o ray_SRX3973296_k31/
+```
+
+Look at your assemlby stats:
+
+
+```sh
+perl N50.pl ray_SRX3973296_k31/Contigs.fasta
+```
+
+
 
 
