@@ -18,5 +18,5 @@ cd /opt/local/software/EMIRGE
 python emirge_makedb.py
 ```
 
-This will download the SILVA_132_SSUREF_Nr99 files to your computer.  It will then proceed to clustering.  Be patient. This may take a few minutes.
+This will download the SILVA_132_SSUREF_Nr99 files to your computer, which contain >600,000 reference 16S rRNA gene sequences.  It will then proceed to clustering.  Be patient. This may take a few minutes.
 
