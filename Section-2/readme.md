@@ -10,8 +10,6 @@ Lets use the single cell genomics data we collected in Section 1.  The important
 
 
 
+To reconstruct the full length 16S rRNA gene, we will use a program call Emirge:
 
-
-
-
-
+https://github.com/csmiller/EMIRGE
