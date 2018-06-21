@@ -285,16 +285,24 @@ Which assembly is best ? which kmer setting shoudl you use ? Why ?
 Now assemble your whole QCed dataset using the Kmer you deem optimal. We will only keep contigs longer than 500bp for this -- like so:
 
 ```sh
-Ray -k 31 -n 4 -minimum-contig-length 500 -p SRX3973296_1.q30.fastq SRX3973296_2.q30.fastq -o ray_SRX3973296_k31/
+Ray -k 25 -n 4 -minimum-contig-length 500 -p SRX3973296_1.q30.fastq SRX3973296_2.q30.fastq -o ray_SRX3973296_k25/
 ```
 
 Look at your assemlby stats:
 
-
 ```sh
-perl N50.pl ray_SRX3973296_k31/Contigs.fasta
+perl N50.pl ray_SRX3973296_k25/Contigs.fasta
 ```
 
+## RAST
+
+Last but not least, upload your Contigs.fasta to RAST.
+
+http://http://rast.nmpdr.org/
+
+Log in and choose "upload new job":
+
+![]()
 
 
 
