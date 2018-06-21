@@ -127,9 +127,13 @@ View the data in your web browser.  As you can see, there is significant Illumin
 
 ![trueseq contamination](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/trueseq_adapter_contamination.PNG)
 
-## REMOVING ILLUMINA ADAPTERS (IF PRESENT)
+### REMOVING ILLUMINA ADAPTERS (IF PRESENT)
 
-OK, lests clean some of this data up. The first thing you will need to do is to find the adapters sequence in the fastqc report. Open the html for the fastqc report in a web browser.  Then grab each of the over-represented sequences and put them in a notepad text file.  The final file, should look something like this:
+The program we will use for this is called cutadapt.  Documentation can be found here:
+
+http://cutadapt.readthedocs.io/en/stable/index.html
+
+Lets clean some of this data up. The first thing you will need to do is to find the adapters sequence in the fastqc report. Open the html for the fastqc report in a web browser.  Then grab each of the over-represented sequences and put them in a notepad text file.  The final file, should look something like this:
 
 ```sh
 -b GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT -b AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -b NNNNNNN -e 0.15 -q 20 -n 1
@@ -162,8 +166,22 @@ SRX3973296_2.fastq        diox_f_50000_fastqc.zip   diox_r_50000_fastqc.html
 SRX3973296_2_fastqc.html  diox_f_cutadapt.fastq     diox_r_50000_fastqc.zip
 ```
 
+Check out the fastqc report. You'll notice that the adapter is no longer in diox_r_cutadapt.fastq or diox_f_cutadapt.fastqc.  However, we still ahve some crummy reads in the dataset that need trimming.  You can see this in the per base quality pane:
 
+!(per base quality)[https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/per_base_quality.PNG]
 
+### Lets trim reads to remove poor quality data
+
+We will use a set of software calle HomerTools.  The documentatoin can be found here:
+
+http://homer.ucsd.edu/homer/ngs/index.html
+
+```sh
+read_fastq -e base_33 -i diox_r_cutadapt.fastq | trim_seq -m 30 -l 8 --trim=right | write_fastq -o diox_r_cutadapt.q30.fastq -x
+read_fastq -e base_33 -i diox_f_cutadapt.fastq | trim_seq -m 30 -l 8 --trim=right | write_fastq -o diox_f_cutadapt.q30.fastq -x
+fastqc diox_f_cutadapt.q30.fastq
+fastqc diox_r_cutadapt.q30.fastq
+```
 
 
 
