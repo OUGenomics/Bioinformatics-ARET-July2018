@@ -218,7 +218,7 @@ Ray -k 31 -n 4 -p fs.fastq rs.fastq -o ray_31/
 ```
 If you want to do this with multiple cores, control the number of cores with the -n flag (this will depend on how many cores you have assigned using docker).
 
-Repeat this for kmer settins of 15, 21, and 27.  You can try others, but the number needs to be odd.
+Repeat this for kmer settings of 15, 21, and 27.  You can try others, but the number needs to be odd.
 
 NOTE: If you are having trouble seeing the contents of the Ray output folder in your web browser you need to give permission:
 
@@ -277,7 +277,7 @@ GC %:                           34.17 %
 ```
 
 ### Self-Examination
-Which assembly is best ? which kmer setting shoudl you use ? Why ?
+Which assembly is best ? which kmer setting should you use ? Why ?
 
 
 ### Now Lets assemble a larger portion of your data
