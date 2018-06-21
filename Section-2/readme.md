@@ -5,7 +5,9 @@ In this exercise, we will learn how to make a robust species identification usin
 
 ### Download some data for a bacterial genome
 
-Lets use the single cell genomics data we collected in Section 1.  The important thing is that this data is high-quality and does not contain any adapter sequences.
+Lets use the single cell genomics data we collected in Section 1.  The important thing is that this data is high-quality and does not contain any adapter sequences, so use the XX_cutadapt.q30.fastq files.
+
+
 
 
 
