@@ -197,7 +197,7 @@ fastqc SRX3973296_2.q30.fastq
 
 ## RUNNING ASSEMBLIES
 
-Lets benchmark two different assembly programs with your data to decide which one we should use.  First, make a small sub-set of your data that contains about 10% of the reads.
+Lets benchmark assembly at several different kmer setting for your data to decide which one we should use.  First, make a small sub-set of your data that contains about 10% of the reads.
 
 ```sh
 head SRX3973296_1.q30.fastq -n 80000 > fs.fastq
@@ -216,62 +216,15 @@ Run a [Ray](http://denovoassembler.sourceforge.net/manual.html) assembly with a 
 ```sh
 Ray -k31 -n 4 -p fs.fastq rs.fastq -o ray_31/
 ```
-
 If you want to do this with multiple cores, control the number of cores with the -n flag (this will depend on how many cores you have assigned using docker).
+
+Repeat this for kmer settins of 15, 21, and 27.  You can try others, but the number needs to be odd.
 
 NOTE: If you are having trouble seeing the contents of the Ray output folder in your web browser you need to give permission:
 
 ```sh
 chmod 777 ray_31/
 ```
-
-
-### Velvet Assembly
-
-*Brief [description](https://www.ebi.ac.uk/~zerbino/velvet/) of Velvet:*
-
->Velvet is a de novo genomic assembler specially designed for short read sequencing technologies, such as Solexa or 454, developed by Daniel Zerbino and Ewan Birney at the European Bioinformatics Institute (EMBL-EBI), near Cambridge, in the United Kingdom.  Velvet currently takes in short read sequences, removes errors then produces high quality unique contigs. It then uses paired-end read and long read information, when available, to retrieve the repeated areas between contigs.
-
-Let's try a [Velvet](https://www.ebi.ac.uk/~zerbino/velvet/) assembly.
-
-```sh
-velveth velvet/ 31 -shortPaired -fastq -separate fs.fastq rs.fastq
-velvetg velvet/
-```
-In all likelihood this just failed for you ! The reason being that velvet needs paired reads, but some of your reads were dropped by the QC steps above.  A workaround is a perl script I wrote. WARNING - this is not an optimal solution and may fail with very large datasets.
-
-```sh
-wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/pair.pl
-```
-Now run this script on your data.  The '20' parameters drops all reads that are shorter than 20 base pairs.
-
-```sh
-perl pair.pl fs.fastq rs.fastq 20 fs.paired.fastq rs.paired.fastq fs.unpaired.fastq rs.unpaired.fastq
-```
-
-
-
-
-
-```sh
-velveth velvet/ 31 -shortPaired -fastq -separate fs.fastq rs.fastq
-velvetg velvet/
-```
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 Download the [N50](https://en.wikipedia.org/wiki/N50_statistic) perl script
  
@@ -282,14 +235,20 @@ wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/N50.pl
 Then assess the N50 stats on both assemblies.
 
 ```sh
-perl N50.pl velvet/contigs.fa
 perl N50.pl ray_31/Contigs.fasta
 ```
 
+Do the same for the other kmer settings.
+
+My output is as follows:
+
+```sh
+
+
+```
+
 ### Self-Examination
-Which assembly is faster ? Which assembly is better ? Why ?
-
-
+Which assembly is best ? which kmer setting shoudl you use ? Why ?
 
 
 ### Now Lets assemble a larger portion of your data
