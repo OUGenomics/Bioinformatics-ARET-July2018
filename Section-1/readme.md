@@ -129,37 +129,37 @@ View the data in your web browser.  As you can see, there is significant Illumin
 
 ## REMOVING ILLUMINA ADAPTERS (IF PRESENT)
 
-OK, lests clean some of this data up. The first thing you will need to do is to create a .conf file for the program that will remove the adapters.  Open the html for the fastqc report in a web browser.  Then grab each of the over-represented sequences and put them in a notepad text file.  The final file, should look something like this:
+OK, lests clean some of this data up. The first thing you will need to do is to find the adapters sequence in the fastqc report. Open the html for the fastqc report in a web browser.  Then grab each of the over-represented sequences and put them in a notepad text file.  The final file, should look something like this:
 
 ```sh
--b GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT
--b GATCGGAAGAGCACACGTCTGAACTCCAGTCAC
--b AATGATACGGCGACCACCGAGATCTACACTCTTTCCCTACACGACGCTCTTCCGATCT
--b AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT
--b NNNNNNN
--e 0.15
--q 20
--n 1
+-b GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT -b AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -b NNNNNNN -e 0.15 -q 20 -n 1
 ```
-Where each line that starts with a '-b' represents an adapter sequence.  In the above example, this was adapter 'GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT', which I have added as the first line.  I've added a few other common adapters for good measure.  The line '-b NNNNNNN' trims poor quality sequences.  We also need -e -q and -n parameters.
+Where each line that starts with a '-b' represents an adapter sequence.  In the above example, this was adapter 'GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT', which I have added as the first line.  I've added another common adapter for good measure, so you can see that it is possible to use multiple adapters in the same command.  The line '-b NNNNNNN' trims poor quality sequences.  We also add the -e -q and -n parameters to constrain our trimming
 
 Now, go back to powersheell and type:
 
 ```sh
-nano
+cutadapt -b GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT -b AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -b NNNNNNN -e 0.15 -q 20 -n 1 -o diox_r_cutadapt.fastq diox_r_50000.fastq
 ```
 
-This brings up a text editor in linux.  Cut and paste the text from your notepad to the nano text editor. Then press 'control-O' (both keys at the same time).  It will prompt you to name the file.  Name it 'adapters.conf'. Press enter.  Then press 'control-x' to exit the editor.  You may be prompted to save again.
+Do the same for the reverse reads and run fastqc on them.
+
+```sh
+cutadapt -b GATCGGAAGAGCACACGTCTGAACTCCAGTCACACCACTGTATCTCGTAT -b AGATCGGAAGAGCGTCGTGTAGGGAAAGAGTGT -b NNNNNNN -e 0.15 -q 20 -n 1 -o diox_f_cutadapt.fastq diox_f_50000.fastq
+fastqc diox_f_cutadapt.fastq
+fastqc diox_r_cutadapt.fastq
+```
 
 My directory contents look like this, at this juncture:
 
 
 ```sh
 [root@688409c9448f data]# ls
-IMG_0002.pdf              SRX3973296_2.fastq        diox_f_50000.fastq        diox_r_50000_fastqc.html
-SRX3973296_1.fastq        SRX3973296_2_fastqc.html  diox_f_50000_fastqc.html  diox_r_50000_fastqc.zip
-SRX3973296_1_fastqc.html  SRX3973296_2_fastqc.zip   diox_f_50000_fastqc.zip
-SRX3973296_1_fastqc.zip   adapters.conf             diox_r_50000.fastq
+SRX3973296_1.fastq        SRX3973296_2_fastqc.zip   diox_f_cutadapt_fastqc.html  diox_r_cutadapt.fastq
+SRX3973296_1_fastqc.html  diox_f_50000.fastq        diox_f_cutadapt_fastqc.zip   diox_r_cutadapt_fastqc.html
+SRX3973296_1_fastqc.zip   diox_f_50000_fastqc.html  diox_r_50000.fastq           diox_r_cutadapt_fastqc.zip
+SRX3973296_2.fastq        diox_f_50000_fastqc.zip   diox_r_50000_fastqc.html
+SRX3973296_2_fastqc.html  diox_f_cutadapt.fastq     diox_r_50000_fastqc.zip
 ```
 
 
