@@ -183,6 +183,15 @@ fastqc diox_f_cutadapt.q30.fastq
 fastqc diox_r_cutadapt.q30.fastq
 ```
 
+Repeat these steps with the data you downloaded from the NCBI SRA database. In my case, I didn't notice any adapters, so I can simply run
+
+```sh
+read_fastq -e base_33 -i SRX3973296_1.fastq | trim_seq -m 30 -l 8 --trim=right | write_fastq -o SRX3973296_1.q30.fastq -x
+read_fastq -e base_33 -i SRX3973296_2.fastq | trim_seq -m 30 -l 8 --trim=right | write_fastq -o SRX3973296_2.q30.fastq -x
+fastqc SRX3973296_1.q30.fastq 
+fastqc SRX3973296_2.q30.fastq 
+```
+
 !!CONGRATULATIONS. YOU NOW HAVE HIGH QUALITY SEQUENCE DATA TO START DOING SCIENCE :)
 
 
@@ -191,8 +200,8 @@ fastqc diox_r_cutadapt.q30.fastq
 Lets benchmark two different assembly programs with your data to decide which one we should use.  First, make a small sub-set of your data that contains about 10% of the reads.
 
 ```sh
-head f.fastq -n 80000 > fs.fastq
-head r.fastq -n 80000 > rs.fastq
+head SRX3973296_1.q30.fastq -n 80000 > fs.fastq
+head SRX3973296_2.q30.fastq -n 80000 > rs.fastq
 ```
 This should give you about 40,000 paired reads. These are partial files to allow the assembly to complete in a reasonable amount of time. Together the files contain about 5*10^6 bp of sequence, which is about 1x coverage of a typical bacterial genome.  For a good assembly of a whole genome, you would typically aim for 100-200X coverage, but even 50X will yield a decent assembly.
 
