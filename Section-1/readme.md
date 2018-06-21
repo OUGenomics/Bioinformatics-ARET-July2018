@@ -168,7 +168,7 @@ SRX3973296_2_fastqc.html  diox_f_cutadapt.fastq     diox_r_50000_fastqc.zip
 
 Check out the fastqc report. You'll notice that the adapter is no longer in diox_r_cutadapt.fastq or diox_f_cutadapt.fastqc.  However, we still ahve some crummy reads in the dataset that need trimming.  You can see this in the per base quality pane:
 
-!(per base quality)[https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/per_base_quality.PNG]
+![per base quality](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/per_base_quality.PNG)
 
 ### Lets trim reads to remove poor quality data
 
@@ -183,7 +183,7 @@ fastqc diox_f_cutadapt.q30.fastq
 fastqc diox_r_cutadapt.q30.fastq
 ```
 
-
+!!CONGRATULATIONS. YOU NOW HAVE HIGH QUALITY SEQUENCE DATA TO START DOING SCIENCE :)
 
 
 ## RUNNING ASSEMBLIES
