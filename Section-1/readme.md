@@ -203,7 +203,7 @@ Lets benchmark two different assembly programs with your data to decide which on
 head SRX3973296_1.q30.fastq -n 80000 > fs.fastq
 head SRX3973296_2.q30.fastq -n 80000 > rs.fastq
 ```
-This should give you about 40,000 paired reads. These are partial files to allow the assembly to complete in a reasonable amount of time. Together the files contain about 5*10^6 bp of sequence, which is about 1x coverage of a typical bacterial genome.  For a good assembly of a whole genome, you would typically aim for 100-200X coverage, but even 50X will yield a decent assembly.
+This should give you about 40,000 paired reads. These are partial files to allow the assembly to complete in a reasonable amount of time. Together the files contain about 4*10^6 bp of sequence (assuming an average read length of ~100bp), which is about 1x coverage of a typical bacterial genome.  For a good assembly of a whole genome, you would typically aim for 100-200X coverage, but even 50X will yield a decent assembly.
 
 ### Ray Assembly
 
@@ -238,6 +238,35 @@ Let's try a [Velvet](https://www.ebi.ac.uk/~zerbino/velvet/) assembly.
 velveth velvet/ 31 -shortPaired -fastq -separate fs.fastq rs.fastq
 velvetg velvet/
 ```
+In all likelihood this just failed for you ! The reason is the need for all reads to be paired in velvet, but some of your reads were dropped by the QC steps above.  A workaround is a perl script I wrote. WARNING - this is not an optimal solution and may fail with very large datasets.
+
+
+
+
+
+
+
+
+
+```sh
+velveth velvet/ 31 -shortPaired -fastq -separate fs.fastq rs.fastq
+velvetg velvet/
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 Download the [N50](https://en.wikipedia.org/wiki/N50_statistic) perl script
  
