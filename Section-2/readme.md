@@ -13,7 +13,10 @@ https://github.com/csmiller/EMIRGE
 
 Before we can use this software, we need to download a 16S database for reference.  I don't keep this in my docker file to prevent bloat of the file size. To do this, we will need to go into the EMIGE folder and run the download script:
 
-'''sh
+```sh
 cd /opt/local/software/EMIRGE
-'''
+python emirge_makedb.py
+```
+
+This will download the SILVA_132_SSUREF_Nr99 files to your computer.  It will then proceed to clustering.  Be patient. This may take a few minutes.
 
