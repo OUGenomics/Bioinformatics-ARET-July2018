@@ -7,9 +7,13 @@ In this exercise, we will learn how to make a robust species identification usin
 
 Lets use the single cell genomics data we collected in Section 1.  The important thing is that this data is high-quality and does not contain any adapter sequences, so use the XX_cutadapt.q30.fastq files.
 
-
-
-
 To reconstruct the full length 16S rRNA gene, we will use a program call Emirge:
 
 https://github.com/csmiller/EMIRGE
+
+Before we can use this software, we need to download a 16S database for reference.  I don't keep this in my docker file to prevent bloat of the file size. To do this, we will need to go into the EMIGE folder and run the download script:
+
+'''sh
+cd /opt/local/software/EMIRGE
+'''
+
