@@ -42,11 +42,11 @@ The search will take a while. After it completes, you'll need to do some data pr
 
 ```sh
 cut -d \t Fhits.tab -f2 | awk '{print $1}' > f_h.txt
-grep -A 1 -f f_h.txt SRX3973296_1.q30.fastq > f_h.fas
+grep -A 1 -f f_h.txt SRX3577904_1.fastq > f_h.fas
 sed '/--/d' f_h.fas > f_h.fasta
 
 cut -d \t Rhits.tab -f2 | awk '{print $1}' > r_h.txt
-grep -A 1 -f r_h.txt SRX3973296_2.q30.fastq > r_h.fas
+grep -A 1 -f r_h.txt SRX3577904_2.fastq > r_h.fas
 sed '/--/d' r_h.fas > r_h.fasta
 ```
 
