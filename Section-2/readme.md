@@ -132,8 +132,12 @@ Lastly, we assemble the reads as we did in exercise 1:
 
 ```sh
 Ray -k 15 -s 16S_diox_hits.fasta -o ray_diox_16S/
+chmod 777 ray_diox_16S/
 ```
 
+Now go and open the ray_diox_16S/Contigs.fasta file.  There are three contigs, the largest of which is 2,200 base pairs.  Go back to the blastN page and blast your sequences.  You should get an output that looks something like this:
+
+![blast output](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/blastN.PNG)
 
 
 
