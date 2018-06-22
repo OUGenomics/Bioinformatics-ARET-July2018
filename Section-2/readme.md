@@ -11,14 +11,22 @@ To reconstruct the full length 16S rRNA gene, we will use a program call Emirge:
 
 https://github.com/csmiller/EMIRGE
 
-Before we can use this software, we need to download a 16S database for reference.  I don't keep this in my docker file to prevent bloat of the file size. To do this, we will need to go into the EMIGE folder and run the download script:
+Before we can use this software, we need to download a 16S database for reference.  I don't keep this in my docker file to prevent bloat of the file size. To build the index yourself, you will need to go into the EMIGE folder and run the download script:
 
 ```sh
 cd /opt/local/software/EMIRGE
 python emirge_makedb.py
 ```
 
-This will download the SILVA_132_SSUREF_Nr99 files to your computer, which contain >600,000 reference 16S rRNA gene sequences.  It will then proceed to clustering.  Be patient. This may take a few minutes.
+This will download the SILVA_132_SSUREF_Nr99 files to your computer, which contain >600,000 reference 16S rRNA gene sequences.  It will then proceed to clustering and making a bowtie-index file.  Be patient. This takes over an hour on a typical PC, which is why I have done this for you and am sharing the output in this github entry.  Instead of running emirge_makedb.py, download them to the emirge folder:
+
+```sh
+cd /opt/local/software/EMIRGE
+wget
+```
+
+
+
 
 
 
