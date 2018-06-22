@@ -48,7 +48,7 @@ usearch -usearch_global CAM_SMPL_SRA022063.fa -db SSURef_111_candidate_db.udb -i
 
 
 ```sh
-wget https://github.com/bwawrik/MBIO5810/blob/raw/perl_scripts/parse_hits.pl
+wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/parse_hits.pl
 perl parse_hits.pl COM_SMPL_Fhits.fasta COM_SMPL_16Sseqs.fasta
 ```
 
