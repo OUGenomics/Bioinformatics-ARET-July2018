@@ -40,10 +40,6 @@ We will now use as search tool called 'usearch' to compare each of the reads to 
 ```sh
 usearch -usearch_global SRX3577904_1.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
 usearch -usearch_global SRX3577904_2.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
-
-
-usearch -usearch_global diox_f_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out dFhits.tab
-usearch -usearch_global diox_r_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out dRhits.tab
 ```
 
 
@@ -60,6 +56,27 @@ cut -d \t Rhits.tab -f2 | awk '{print $1}' > r_h.txt
 grep -A 1 -f r_h.txt SRX3577904_2.fastq > r_h.fas
 sed '/--/d' r_h.fas > r_h.fasta
 ```
+
+
+```sh
+usearch -usearch_global diox_f_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out dFhits.tab
+usearch -usearch_global diox_r_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out dRhits.tab
+
+
+cut -d \t dFhits.tab -f2 | awk '{print $1}' > df_h.txt
+grep -A 1 -f f_h.txt diox_f_cutadapt.fastq > df_h.fas
+sed '/--/d' df_h.fas > df_h.fasta
+
+
+cut -d \t dRhits.tab -f2 | awk '{print $1}' > dr_h.txt
+grep -A 1 -f r_h.txt diox_r_cutadapt.fastq > dr_h.fas
+sed '/--/d' dr_h.fas > dr_h.fasta
+```
+
+```
+
+
+
 
 I know this looks complicated.  Don't try to overthink these commands at this point.  Basically it produces a fasta files that contain the reads that match something in SILVA adn places these reads into r_h.fasta and f_h.fasta.
 
