@@ -97,6 +97,39 @@ Paste your sequence into the box and press submit.
 
 ![seq-match](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/seq_match.PNG)
 
+What's your output ? Do you now understand why it failed ? What's the lesson ?
+
+### Lets try one that works
+
+In Section 1 we downloaded some data for an isolate.   (diox_f_cutadapt.fastq 
+
+```sh
+usearch -usearch_global diox_f_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out dFhits.tab
+usearch -usearch_global diox_r_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out dRhits.tab
+
+
+cut -d \t dFhits.tab -f2 | awk '{print $1}' > df_h.txt
+grep -A 1 -f df_h.txt diox_f_cutadapt.fastq > df_h.fas
+sed '/--/d' df_h.fas > df_h.fasta
+
+
+cut -d \t dRhits.tab -f2 | awk '{print $1}' > dr_h.txt
+grep -A 1 -f dr_h.txt diox_r_cutadapt.fastq > dr_h.fas
+sed '/--/d' dr_h.fas > dr_h.fasta
+```
+
+
+We combine the files into one like this:
+
+```sh
+cat r_h.fasta f_h.fasta > 16S_hits.fasta
+```
+
+Lastly, we assemble the reads as we did in exercise 1:
+
+```sh
+Ray -k 15 -s 16S_hits.fasta -o ray_16S/
+```
 
 
 
