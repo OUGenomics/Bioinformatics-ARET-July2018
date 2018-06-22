@@ -24,7 +24,8 @@ Conduct a search of the SRA with the following search terms:
 - genome
 - bacterium
 
-I'll show you how to tind the average read length in class.  I picked this sample: SRX3577904
+I'll show you how to tind the average read length in class.  Lets pick this sample for the purpose of the exercise: SRX3577904
+It is labeled as "Uncultivated genome  	Shewanella sp.". Lets see if we can confirm this.  Start by getting your data and trimming the reads.  Don't worry about trimming adapters.
 
 ```sh
 fastq-dump -I --split-files SRX3577904 -X 400000
@@ -34,28 +35,42 @@ read_fastq -e base_33 -i SRX3577904_2.fastq | trim_seq -m 30 -l 8 --trim=right |
 
 ```
 
-We will now use as search tool called 'usearch' to compare each of the reads to the SILVA reference data set:
-
+We will now use as search tool called 'usearch' to compare each of the reads to the SILVA reference data set.  About 1 in 1000 genes in a typical genome codes for a 16S rRNA gene.  We downloaded 400000 reads so we should expect about 400 hits.  That sufficient to assmeble the complete 16S sequence, so we'll only need to run the forward reads (you'd get another 400 if you ran the reverse reads):
 
 ```sh
 usearch -usearch_global SRX3577904_1.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
-usearch -usearch_global SRX3577904_2.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
 ```
 
-
-
-The search will take a while. After it completes, you'll need to do some data processing:
+The search will take a about 15 minutes on your typical desktop. After it completes, you'll need to do some text file parsing:
 
 ```sh
 cut -d \t Fhits.tab -f2 | awk '{print $1}' > f_h.txt
 grep -A 1 -f f_h.txt SRX3577904_1.fastq > f_h.fas
 sed '/--/d' f_h.fas > f_h.fasta
-
-
-cut -d \t Rhits.tab -f2 | awk '{print $1}' > r_h.txt
-grep -A 1 -f r_h.txt SRX3577904_2.fastq > r_h.fas
-sed '/--/d' r_h.fas > r_h.fasta
 ```
+
+I know this looks complicated.  Don't try to overthink these commands at this point.  They remove some extra lines and produce a fasta files that contains the reads that match something in SILVA.  The reads are then placed into a file called "f_h.fasta".
+
+Of course, you remember how to run an assembly from exercise 1 ;) Lets use a shorter kmer here, because the reads are little shorter than I'd like after trimming.
+
+```sh
+Ray -k 15 -s f_h.fasta -o ray_SRX3577904_16S/
+chmod 777 ray_SRX3577904_16S/
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ```sh
