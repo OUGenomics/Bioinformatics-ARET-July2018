@@ -35,3 +35,20 @@ wget http://mgmic.oscer.ou.edu/sequence_data/tutorials/SSURef_111_candidate_db.f
 usearch -makeudb_usearch SSURef_111_candidate_db.fasta -output SSURef_111_candidate_db.udb
 ```
 
+If you are using a dataset that is in fastq format, you'll need to convert the data to fasta:
+```sh
+read_fastq -i filename.fastq | write_fasta -o filename.fasta -x
+```
+
+As in Section 2, we now run a search of all the reads against the SILVA reference file:
+
+```sh
+usearch -usearch_global CAM_SMPL_SRA022063.fa -db SSURef_111_candidate_db.udb -id 0.7 -fastapairs f_hits.fasta -strand both
+```
+
+
+
+
+
+
+
