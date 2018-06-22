@@ -49,16 +49,14 @@ usearch -usearch_global CAM_SMPL_SRA022063.fa -db SSURef_111_candidate_db.udb -i
 
 ```sh
 wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/parse_hits.pl
-perl parse_hits.pl COM_SMPL_Fhits.fasta COM_SMPL_16Sseqs.fasta
+perl parse_hits.pl COM_SMPL_Fhits.fasta HITS.fasta
 ```
 
 
 As before,  you'll need to do some data processing:
 
 ```sh
-cut -d \t  CAM_SMPL_Fhits.tab -f2 | awk '{print $1}' > CAM_SMPLf_h.txt
-grep -A 1 -f CAM_SMPLf_h.txt CAM_SMPL_SRA022063.fa > CAM_SMPLf_h.fas
-sed '/--/d'  CAM_SMPLf_h.fas >  CAM_SMPLf_h.fasta
+read_fasta -i CAM_SMPL_SRA022063.fa | grab -E HITS.fasta.tags | write_fasta -o HITS.seqs.fasta -x
 ```
 
 
