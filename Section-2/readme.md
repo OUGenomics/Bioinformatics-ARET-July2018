@@ -20,12 +20,11 @@ cut -d \t Rhits.tab -f2 | awk '{print $1}' > r_h.txt
 grep -A 1 -f r_h.txt SRX3973296_2.q30.fastq > r_h.fas
 sed '/--/d' r_h.fas > r_h.fasta
 
-cat r_h.fasta f_h.fasta 16S_hits.fasta
+cat r_h.fasta f_h.fasta > 16S_hits.fasta
 
 
 
-Ray -k 15 -minimum-contig-length 200 -s 16S_hits.fasta -o ray_16S/
- 
+Ray -k 15 -s 16S_hits.fasta -o ray_16S/
 
 
 
