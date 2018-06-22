@@ -18,12 +18,15 @@ cd /opt/local/software/EMIRGE
 python emirge_makedb.py
 ```
 
-This will download the SILVA_132_SSUREF_Nr99 files to your computer, which contain >600,000 reference 16S rRNA gene sequences.  It will then proceed to clustering and making a bowtie-index file.  Be patient. This takes over an hour on a typical PC, which is why I have done this for you and am sharing the output in this github entry.  Instead of running emirge_makedb.py, download them to the emirge folder:
+This will download the SILVA_132_SSUREF_Nr99 files to your computer, which contain >600,000 reference 16S rRNA gene sequences.  It will then proceed to clustering and making a bowtie-index file.  Be patient. This takes over an hour on a typical PC, which is why I have done this for you, and I am sharing the output over my private server. Instead of running emirge_makedb.py, download them to the emirge folder:
 
 ```sh
 cd /opt/local/software/EMIRGE
 wget
 ```
+
+Please keep in mind that I may delete these files at some point in the future.  In that case you will need to run the makedb file.  You can preserve the ouput by copying the files to you /data folder.  That way they will not be lost when you shut your docker down.  Alternatively  you can use docke commit (see instructions to docker).
+
 
 
 
