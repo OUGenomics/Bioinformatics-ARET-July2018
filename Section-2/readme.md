@@ -95,7 +95,7 @@ https://rdp.cme.msu.edu/seqmatch/seqmatch_intro.jsp
 
 Paste your sequence into the box and press submit.
 
-![seq-match]()
+![seq-match](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/seq_match.PNG)
 
 
 
