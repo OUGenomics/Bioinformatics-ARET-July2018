@@ -20,5 +20,7 @@ https://de.cyverse.org/anon-files//iplant/home/shared/imicrobe/projects/4/sample
 
 Everyone should find their own dataset to work on.  Idenfity the link to the reads and download the data using wget. In my case:
 
+```sh
 wget https://de.cyverse.org/anon-files//iplant/home/shared/imicrobe/projects/4/samples/71/CAM_SMPL_SRA022063.fa
-
+```
+We'll also need the SILVA108 reference file and the corresponding usearch database.  You should still have it in your /data folder. If not, go back to section 2 and regenrate it.
