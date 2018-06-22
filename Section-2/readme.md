@@ -8,8 +8,17 @@ wget http://mgmic.oscer.ou.edu/sequence_data/ARET/Silva_108_rep_set.fasta
 
 usearch -makeudb_usearch Silva_108_rep_set.fasta -output SILVA_108.udb
 
-usearch -usearch_global SRX3973296_1.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
-usearch -usearch_global SRX3973296_2.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
+search 
+	miseq
+	genome	
+	bacterium
+
+fastq-dump -I --split-files SRX3577904 -X 400000
+
+
+
+usearch -usearch_global SRX3577904_1.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
+usearch -usearch_global SRX3577904_2.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
 
 
 cut -d \t Fhits.tab -f2 | awk '{print $1}' > f_h.txt
@@ -25,7 +34,6 @@ cat r_h.fasta f_h.fasta > 16S_hits.fasta
 
 
 Ray -k 15 -s 16S_hits.fasta -o ray_16S/
-
 
 
 
