@@ -73,22 +73,37 @@ docker pull bwawrik/qiime:latest
 docker run -t -i -v c:/docker_data/data/:/data bwawrik/qiime:latest
 ```
  
-You will also need a barcodes file, the add_tag.pl script, and a script to remove duplicates
+You will need a few other filed.  First, you need a barcodes file.  This file contains unique tags that can be added to the sequences in a file.  That way we can catenate multiple files later (each tagged with a different barcode) and analyze them together.  The add_tag.pl script is a little perl magic that actually does the tagging.  Lastly, you'll need a quime configureation file call qiime_default.par.
 
 ```sh
 cd /data
-wget https://github.com/bwawrik/MBIO5810/raw/master/sequence_data/barcodes.txt
-wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/add_tag.pl
-wget https://github.com/bwawrik/MBIO5810/raw/master/sequence_data/qiime_default.par
+wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/barcodes.txt
+wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/add_tag.pl
+wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/qiime_default.par
 ```
-
-- Add a barcode from the barcodes.txt file.  Lets use the third one in the list.
+Remember, you can look at any of these file by simply typing:
+```sh
+cat filename
+```
+View the first 10 lines with:
 
 ```sh
-perl add_tag.pl 3 ssu_hits_corrected.fasta
+head -n 10 filename
 ```
 
-- Validate the mapping file
+### Adding Barcodes
+
+Add a barcode from the barcodes.txt file.  We will make a list on the board. Each person is using a different metagenome. I want each person to use a differnt tag so we can analyze things together later.  I will use tag 3 in this example:
+
+```sh
+perl add_tag.pl 3 MG_16_seqs.fasta
+```
+Open the mappting file with nano. Currently it reads:
+
+```sh
+
+```
+
 
 ```sh
 validate_mapping_file.py -m ssu_hits_corrected.map -o mg_mapping
