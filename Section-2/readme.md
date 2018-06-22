@@ -101,13 +101,16 @@ What's your output ? Do you now understand why it failed ? What's the lesson ?
 
 ### Lets try one that works
 
-In Section 1 we downloaded some data for an isolate.   (diox_f_cutadapt.fastq 
+In Section 1 we downloaded some data for an isolate (diox_f_50000.fastq and diox_r_50000.fastq).  If you did not, because you worked with your own data, go back to section 1 and run the wget and cutadapt commands.  Then use usearch to compare the reads to the SILVA database:
 
 ```sh
 usearch -usearch_global diox_f_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out dFhits.tab
 usearch -usearch_global diox_r_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out dRhits.tab
+```
 
+Good. Now do your file parsing:
 
+```sh
 cut -d \t dFhits.tab -f2 | awk '{print $1}' > df_h.txt
 grep -A 1 -f df_h.txt diox_f_cutadapt.fastq > df_h.fas
 sed '/--/d' df_h.fas > df_h.fasta
@@ -122,14 +125,16 @@ sed '/--/d' dr_h.fas > dr_h.fasta
 We combine the files into one like this:
 
 ```sh
-cat r_h.fasta f_h.fasta > 16S_hits.fasta
+cat dr_h.fasta df_h.fasta > 16S_diox_hits.fasta
 ```
 
 Lastly, we assemble the reads as we did in exercise 1:
 
 ```sh
-Ray -k 15 -s 16S_hits.fasta -o ray_16S/
+Ray -k 15 -s 16S_diox_hits.fasta -o ray_diox_16S/
 ```
+
+
 
 
 
