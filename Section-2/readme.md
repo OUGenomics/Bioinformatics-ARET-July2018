@@ -204,22 +204,24 @@ Click on the “Seqcart” link at the top of the page and you should see that y
 At this point, we want to select several sequences at varying phylogenetic and taxonomic distances to the sequences that we have already selected.  Click on the 
 “Browsers” link at the top of the page.  You will see that whatever group contains selected sequences will show a half-­‐red “plus” symbol. Click on the phylum NAME (not the + symbol) of the sequences you have already selected.  Scroll down the page to reveal the “Data Set Options”.  Select “Type” for Strain, only showing the type strains in the Browser.  Select up to 3 different species in the same genus of your sequence and up to 3 different genera in the same family.  Lastly, choose a sequence from a different phylum that can be used as an outgroup later in our phylogenetic tree. Make sure that you click on the “Seqcart” link after each selection to confirm that the sequences you want to select are indeed selected. 
 
-Download the sequences that you have selected (by clicking on the “download” link at the top of the page).  Make sure that the number of myRDP and public sequences selected is what you expect to be selected. You will want to download the sequences as Fasta, unaligned and Jukes Cantor corrected. 
+Download the sequences that you have selected (by clicking on the “download” link at the top of the page).  Make sure that the number of myRDP and public sequences selected is what you expect to be selected. You will want to download the sequences as Fasta, unaligned. 
 
 ### Making an Allignment
 
+Navigate to the EMBLEBI webpage for multiple sequence alignment programs:
 
-Navigate to the EMBL-­‐EBI webpage for the program CLUSTALW2, a general purpose multiple sequence alignment program for DNA or proteins 
-(http://www.ebi.ac.uk/Tools/msa/clustalw2/). Upload your fasta file that contains your sequence and those selected from RDP. Accept all of the default settings and click on the “Submit” button to perform the multiple sequence alignment. The output will be displayed, showing the multiple sequence alignment. Click on the 
-“Send to ClustalW2_Phylogeny” button. Accept all of the default settings on the next page and click the “Submit” button. 
+https://www.ebi.ac.uk/Tools/msa/
 
-You will be redirected to a Phylogeny page.  You will see the phylogenetic tree results. If you click on the “View Phylogenetic Tree File” button, a new window will open showing the text of the phylogenetic tree data (series of parentheses and your sequence accession numbers). Select all of this text, copy it and paste it in a text editor program.  Make sure you save it as plain text and give it the suffix “.tre”.  
+We'll be using a program called MAFFT to align our sequnces.  Select the link for MAFFT and paste the sequences you retrieved from the RDP into the text box:
+
+![use MAFFT](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/mafft.PNG)
+
+The press the align button to perform the multiple sequence alignment. The output will be displayed, showing the multiple sequence alignment. Click on the Phylogenetic tree button.   You will be redirected to a Phylogeny page.  You will see the phylogenetic tree results. If you click on the “View Phylogenetic Tree File” button, a new window will open showing the text of the phylogenetic tree data (series of parentheses and your sequence accession numbers). Select all of this text, copy it and paste it in a text editor program.  Make sure you save it as plain text and give it the suffix “.tre”.  
 If you go back to the web browser and scroll down the previous page, you will find the Phylogram data (phylogenetic tree), which can be shown using a java program.
 
 
 ### Draw a Phylogenetic Tree 
-There are many programs that are capable of drawing phylogenetic trees.  The most suitable, widely used and free program that does this is “FigTree” 
-http://tree.bio.ed.ac.uk/software/figtree/.  Download and install this program.  
+There are many programs that are capable of drawing phylogenetic trees.  The most suitable, widely used and free program that does this is “FigTree”. http://tree.bio.ed.ac.uk/software/figtree/.  Download and install this program.  
 
 In the program FigTree, under File, Open, choose the phylogenetic tree file you saved from ClustalW2 that you gave the .tre suffix. Export your phylogenetic tree as a PDF file.   
 
