@@ -232,9 +232,21 @@ In many cases, you don't have the luxury of using a web interface, either becaus
 ```sh
 sh /opt/local/software/mafft-linux64/mafft.bat rdp_results.fas > allign.fas
 ```
-Allign.fas should contain the same alignment that the online portal generated for you.
+Allign.fas should contain the same alignment that the online portal generated for you.  Finally, you can generate the tree file with a program calle MUSCLE:
+
+```sh
+muscle -in alling.fas -tree1 tree.phy
+```
+You can view your tree file with cat:
 
 
+```sh
+cat tree.phy
+```
+
+or by importint it into FigTree.
+
+Enjoy !
 
 
 
