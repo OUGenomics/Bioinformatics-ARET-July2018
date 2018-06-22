@@ -59,7 +59,10 @@ As before,  you'll need to do some data processing:
 read_fasta -i CAM_SMPL_SRA022063.fa | grab -E HITS.fasta.tags | write_fasta -o HITS.seqs.fasta -x
 ```
 
+grep -A 1 -f f_h.txt SRX3577904_1.fastq > f_h.fas
+sed '/--/d' f_h.fas > f_h.fasta
 
+system ("read_fasta -i temp/fr.fasta | grab -E ".$output_name.".tags | write_fasta -o ".$output_name.".fseqs.fasta -x");
 
 
 
