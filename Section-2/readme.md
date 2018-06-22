@@ -3,6 +3,51 @@
 In this exercise, we will learn how to make a robust species identification using DNA sequence data. We will start with a bacterial genome and extract the full length 16S rRNA gene from it. We will then use a web-tool to construct a phylogenetic tree.
 
 
+
+wget http://mgmic.oscer.ou.edu/sequence_data/ARET/Silva_108_rep_set.fasta
+
+usearch -makeudb_usearch Silva_108_rep_set.fasta -output SILVA_108.udb
+
+usearch -usearch_global SRX3973296_1.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
+usearch -usearch_global SRX3973296_2.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
+
+
+cut -d \t Fhits.tab -f2 | awk '{print $1}' > f_h.txt
+grep -A 1 -f f_h.txt SRX3973296_1.q30.fastq > f_h.fas
+sed '/--/d' f_h.fas > f_h.fasta
+
+cut -d \t Rhits.tab -f2 | awk '{print $1}' > r_h.txt
+grep -A 1 -f r_h.txt SRX3973296_2.q30.fastq > r_h.fas
+sed '/--/d' r_h.fas > r_h.fasta
+
+cat r_h.fasta f_h.fasta 16S_hits.fasta
+
+
+
+Ray -k 15 -minimum-contig-length 200 -s 16S_hits.fasta -o ray_16S/
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 ### Download some data for a bacterial genome
 
 Lets use the single cell genomics data we collected in Section 1.  The important thing is that this data is high-quality and does not contain any adapter sequences, so use the XX_cutadapt.q30.fastq files.
