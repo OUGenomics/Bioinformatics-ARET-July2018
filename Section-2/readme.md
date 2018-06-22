@@ -225,3 +225,8 @@ There are many programs that are capable of drawing phylogenetic trees.  The mos
 
 In the program FigTree, under File, Open, choose the phylogenetic tree file you saved from ClustalW2 that you gave the .tre suffix. Export your phylogenetic tree as a PDF file.   
 
+### Running Alignments Locally
+
+
+sh /opt/local/software/mafft-linux64/mafft.bat rdp_results.fas > alling.fas
+
