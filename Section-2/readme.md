@@ -2,19 +2,33 @@
 
 In this exercise, we will learn how to make a robust species identification using DNA sequence data. We will start with a bacterial genome and extract the full length 16S rRNA gene from it. We will then use a web-tool to construct a phylogenetic tree.
 
-
+The first thing you will need is a good reference dataset to compare your reads against.  The follwoing downloads a slightly older version of the SILVA database.  I actually like this older file, because it is smaller and does not contain the bloat of next generation sequencing reads.  Its great for the purpose of read extraction. It is not the best for classification (Section 4).  
 
 wget http://mgmic.oscer.ou.edu/sequence_data/ARET/Silva_108_rep_set.fasta
 
+The most up to date SILVA files can be found on the SILVA homepage :
+
+https://www.arb-silva.de/
+
+Lets start by preparing our reference database from the SILVA file:
+
+```sh
 usearch -makeudb_usearch Silva_108_rep_set.fasta -output SILVA_108.udb
+```
 
-search 
-	miseq
-	genome	
-	bacterium
+Now lets go to the SRA and find ourselves some data.   For this, you will need some data with decent read lengths.  Much of the SRA is unfortunatelly populated with very short HiSeq reads (<100 bp of usable data).   I prefer using MiSeq when sequencing a genome becuase the reads are 250-300 bp long.  
 
+Conduct a search of the SRA with the following search terms:
+
+- miseq
+- genome
+- bacterium
+
+I'll show you how to tind the average read length in class.  I picked this sample: SRX3577904
+
+```sh
 fastq-dump -I --split-files SRX3577904 -X 400000
-
+```
 
 
 usearch -usearch_global SRX3577904_1.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
