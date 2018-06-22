@@ -42,8 +42,8 @@ usearch -usearch_global SRX3577904_1.q30.fastq -db SILVA_108.udb -id 0.7 -strand
 usearch -usearch_global SRX3577904_2.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
 
 
-usearch -usearch_global fastqc diox_f_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out dFhits.tab
-usearch -usearch_global fastqc diox_r_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out dRhits.tab
+usearch -usearch_global diox_f_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out dFhits.tab
+usearch -usearch_global diox_r_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out dRhits.tab
 ```
 
 
