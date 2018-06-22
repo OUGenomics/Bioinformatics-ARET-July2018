@@ -23,4 +23,15 @@ Everyone should find their own dataset to work on.  Idenfity the link to the rea
 ```sh
 wget https://de.cyverse.org/anon-files//iplant/home/shared/imicrobe/projects/4/samples/71/CAM_SMPL_SRA022063.fa
 ```
-We'll also need the SILVA108 reference file and the corresponding usearch database.  You should still have it in your /data folder. If not, go back to section 2 and regenrate it.
+We'll also need a SILVA reference dataset.  Lets grab one from my server and make a usearch database:
+
+- Download the SILVA 111 database of known 16S rRNA genes
+
+```sh 
+wget http://mgmic.oscer.ou.edu/sequence_data/tutorials/SSURef_111_candidate_db.fasta
+```
+- Prepare 16S database for searching by creating a UDB datase as follows
+```sh 
+usearch -makeudb_usearch SSURef_111_candidate_db.fasta -output SSURef_111_candidate_db.udb
+```
+
