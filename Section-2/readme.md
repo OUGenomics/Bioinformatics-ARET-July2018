@@ -219,14 +219,22 @@ We'll be using a program called MAFFT to align our sequnces.  Select the link fo
 The press the align button to perform the multiple sequence alignment. The output will be displayed, showing the multiple sequence alignment. Click on the Phylogenetic tree button.   You will be redirected to a Phylogeny page.  You will see the phylogenetic tree results. If you click on the “View Phylogenetic Tree File” button, a new window will open showing the text of the phylogenetic tree data (series of parentheses and your sequence accession numbers). Select all of this text, copy it and paste it in a text editor program.  Make sure you save it as plain text and give it the suffix “.tre”.  
 If you go back to the web browser and scroll down the previous page, you will find the Phylogram data (phylogenetic tree), which can be shown using a java program.
 
+![tree results](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/mafft_tree.PNG)
 
 ### Draw a Phylogenetic Tree 
-There are many programs that are capable of drawing phylogenetic trees.  The most suitable, widely used and free program that does this is “FigTree”. http://tree.bio.ed.ac.uk/software/figtree/.  Download and install this program.  
-
+There are many programs that are capable of drawing phylogenetic trees.  The most suitable, widely used and free program that does this is “FigTree”. http://tree.bio.ed.ac.uk/software/figtree/.  If we have time, we'll download and install this program.  
 In the program FigTree, under File, Open, choose the phylogenetic tree file you saved from ClustalW2 that you gave the .tre suffix. Export your phylogenetic tree as a PDF file.   
 
 ### Running Alignments Locally
 
+In many cases, you don't have the luxury of using a web interface, either because you want to automate things, or because your file is too big.  In that case, you can run MAFFT locally.  Place your sequences in the you /data folder into a file called rdp_results.fas.  The run:
 
-sh /opt/local/software/mafft-linux64/mafft.bat rdp_results.fas > alling.fas
+```sh
+sh /opt/local/software/mafft-linux64/mafft.bat rdp_results.fas > allign.fas
+```
+Allign.fas should contain the same alignment that the online portal generated for you.
+
+
+
+
 
