@@ -139,69 +139,58 @@ Now go and open the ray_diox_16S/Contigs.fasta file.  There are three contigs, t
 
 ![blast output](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/blastN.PNG)
 
+Good, you now have a great blast hit, but you'll notice that the red bar covers only part of your contig.  This happens beacue the reads run over the end of the gene.  16S rRNA genes are only ~1,500 base pairs, so you'll need to trim the edges for the next step.  Look at the alignment below, find the start and stop position and trim your sequence accordingly. Hint: text searchers really help.
 
+![alignment](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/blast_alignment.PNG)
+
+Your final 16S sequence should look something like this:
+
+```sh
+>contig-0 2231 nucleotides
+CCGTCCCCCTTGCGGTTAGACTAG
+CTACTTCTGGTGCAACCCACTCCCATGGTGTGACGGGCGGTGTGTACAAGGCCCGGGAAC
+GTATTCACCGTGACATTCTGATTCACGATTACTAGCGATTCCGACTTCACGCAGTCGAGT
+TGCAGACTGCGATCCGGACTACGATCGGTTTTATGGGATTAGCTCCACCTCGCGGCTTGG
+CAACCCTTTGTACCGACCATTGTAGCACGTGTGTAGCCCTGGCCGTAAGGGCCATGATGA
+CTTGACGTCATCCCCACCTTCCTCCGGTTTGTCACCGGCAGTCTCCTTAGAGTTCCCACC
+ATAACGTGCTGGTAACTAAGGACAAGGGTTGCGCTCGTTACGGGACTTAACCCAACATCT
+CACGACACGAGCTGACGACAGCCATGCAGCACCTGTGTCTGAGTTCCCGAAGGCACCAAT
+CTATCTCTAGAAAGTTCTCAGCATGTCAAGGCCAGGTAAGGTTCTTCGCGTTGCTTCGAA
+TTAAACCACATGCTCCACCGCTTGTGCGGGCCCCCGTCAATTCATTTGAGTTTTAACCTT
+GCGGCCGTACTCCCCAGGCGGTCAACTTAATGCGTTAGCTGCGCCACTAAGAGTTCAAGA
+CTCCCAACGGCTAGTTGACATCGTTTACGGCGTGGACTACCAGGGTATCTAATCCTGTTT
+GCTCCCCACGCTTTCGCACCTCAGTGTCAGTATCAGTCCAGGTGGTCGCCTTCGCCACTG
+GTGTTCCTTCCTATATCTACGCATTTCACCGCTACACAGGAAATTCCACCACCCTCTACC
+GTACTCTAGCTTGCCAGTTTTGGATGCAGTTCCCAGGTTGAGCCCGGGGCTTTCACATCC
+AACTTAACAAACCACCTACGCGCGCTTTACGCCCAGTAATTCCGATTAACGCTTGCACCC
+TCTGTATTACCGCGGCTGCTGGCACAGAGTTAGCCGGTGCTTATTCTGTCGGTAACGTCA
+AAATAGCAACGTATTAAGTTACTACCCTTCCTCCCAACTTAAAGTGCTTTACAATCCGAA
+GACCTTCTTCACACACGCGGCATGGCTGGATCAGGCTTTCGCCCATTGTCCAATATTCCC
+CACTGCTGCCTCCCGTAGGAGTCTGGACCGTGTCTCAGTTCCAGTGTGACTGATCATCCT
+CTCAGACCAGTTACGGATCGTCGCCTTGGTGAGCCGTTACCTCACCAACTAGCTAATCCG
+ACCTAGGCTCATCTAATGGCGCGAGGCCCGAAGGTCCCCCGCTTTCTCCCGTAGGACGTA
+TGCGGTATTAGCGTCCGTTTCCGAACGTTATCCCCCACCACTAGGCAGATTCCTAGGCAT
+TACTCACCCGTCCGCCGCTCTCAAGGGAAGCAAGCTCCCCTCTACCGCTCGACTTGCATG
+TGTTAGGCCTGCCGCCAGCGTTCAATCTGAGCCATGATCAAACTC
+```
+
+Save this as a text file on your computer. You'll need this for the next step.
+
+Lets go back to Seq-Match -- you'll see that this time, you get very confident identifiation of a pseudomonad.
+
+![good match](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/seq_match_good.PNG)
 
 
 ### Phhylogenetically informed analysis
 
-Now that we have a quick an dirty look at the potential taxonomy of your single cell genome, we will want to do a more refined and comprehensive analysis of your isolate’s 16S rRNA sequence taxonomy and phylogeny.  The Ribosomal Database Project website:
+Now that we have a quick an dirty look at the potential taxonomy of your single cell genome, we will want to do a more refined and comprehensive analysis of your isolate’s 16S rRNA sequence taxonomy and phylogeny.  For this, go to the homepage of the Ribosomal Database Project website:
 
 http://rdp.cme.msu.edu
 
 
-First, you will need to upload your sequence to RDP.  Do this by clicking on the “my RDP” icon in the upper right hand corner of the homepage.  Click on the “Test Drive” button on the next screen and you will have entered the myRDP portal as a guest.  Once on the “Overview” page, you will select the “upload” function and upload your sequence.  Choose the “Bacterial 16S rRNA” option, give it the group name 
-“MBIO4873” and a project name that is consistent with your sequence name.  After uploading, it may take several minutes for your sequence to be aligned against the RDP aligned database. 
+First, you will need to upload your sequence to RDP.  Do this by clicking on the “my RDP” icon in the upper right hand corner of the homepage.  Click on the “Test Drive” button on the next screen and you will have entered the myRDP portal as a guest.  Once on the “Overview” page, you will select the “upload” function and upload your sequence.  Choose the “Bacterial 16S rRNA” option and a project name that is consistent with your sequence name.  After uploading, it may take several minutes for your sequence to be aligned against the RDP aligned database. 
 
 You will be directed (or can navigate to) the “overview” webpage.  You will see the status of your sequence.  Once it is aligned, select your sequence by clicking on it.  Choose (by clicking) the “Classifier” at the top of the page.  This will bring you to the Classifier page. Select the “Do classification with Selected Sequences” button. You will be directed to the Classifier “Hierarchy View” page.  Here, you will see the hierarchy of the taxonomic identification of your sequence.  Click on the “show assignment detail for Root only” link.  This will take you to a page that will summarize the taxonomic hierarchy for your sequence.  Click on the “download fixrank result button. 
-
-
-
-
-
-
-
-
-
-
-```sh
-usearch -usearch_global diox_f_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out dFhits.tab
-usearch -usearch_global diox_r_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out dRhits.tab
-
-
-cut -d \t dFhits.tab -f2 | awk '{print $1}' > df_h.txt
-grep -A 1 -f df_h.txt diox_f_cutadapt.fastq > df_h.fas
-sed '/--/d' df_h.fas > df_h.fasta
-
-
-cut -d \t dRhits.tab -f2 | awk '{print $1}' > dr_h.txt
-grep -A 1 -f dr_h.txt diox_r_cutadapt.fastq > dr_h.fas
-sed '/--/d' dr_h.fas > dr_h.fasta
-```
-
-
-We combine the files into one like this:
-
-```sh
-cat r_h.fasta f_h.fasta > 16S_hits.fasta
-```
-
-Lastly, we assemble the reads as we did in exercise 1:
-
-```sh
-Ray -k 15 -s 16S_hits.fasta -o ray_16S/
-```
-
-
-
-
-
-
-
-
-
-
-
-
 
 ### Extracting Reference Sequences
 
