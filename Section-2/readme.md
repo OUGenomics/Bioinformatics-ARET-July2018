@@ -36,7 +36,7 @@ We will now use as search tool called 'usearch' to compare each of the reads to 
 ```sh
 usearch -usearch_global SRX3577904_1.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
 usearch -usearch_global SRX3577904_2.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
-```sh
+```
 
 The search will take a while. After it completes, you'll need to do some data processing:
 
