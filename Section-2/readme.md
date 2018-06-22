@@ -2,7 +2,7 @@
 
 In this exercise, we will learn how to make a robust species identification using DNA sequence data. We will start with a bacterial genome and extract the full length 16S rRNA gene from it. We will then use a web-tool to construct a phylogenetic tree.
 
-The first thing you will need is a good reference dataset to compare your reads against.  The follwoing downloads a slightly older version of the SILVA database.  I actually like this older file, because it is smaller and does not contain the bloat of next generation sequencing reads.  Its great for the purpose of read extraction. It is not the best for classification (Section 4).  
+The first thing you will need is a good reference dataset to compare your reads against.  The following downloads a slightly older version of the SILVA database.  I actually like this older file, because it is smaller and does not contain the bloat of next generation sequencing reads.  Its great for the purpose of read extraction. It is not the best for classification (Section 4).  
 
 wget http://mgmic.oscer.ou.edu/sequence_data/ARET/Silva_108_rep_set.fasta
 
@@ -16,7 +16,7 @@ Lets start by preparing our reference database from the SILVA file:
 usearch -makeudb_usearch Silva_108_rep_set.fasta -output SILVA_108.udb
 ```
 
-Now lets go to the SRA and find ourselves some data.   For this, you will need some data with decent read lengths.  Much of the SRA is unfortunatelly populated with very short HiSeq reads (<100 bp of usable data).   I prefer using MiSeq when sequencing a genome becuase the reads are 250-300 bp long.  
+Now lets go to the SRA and find ourselves some data.   For this, you will need some data with decent read lengths.  Much of the SRA is unfortunately populated with very short HiSeq reads (<100 bp of usable data).   I prefer using MiSeq when sequencing a genome because the reads are 250-300 bp long.   
 
 Conduct a search of the SRA with the following search terms:
 
@@ -24,7 +24,7 @@ Conduct a search of the SRA with the following search terms:
 - genome
 - bacterium
 
-I'll show you how to tind the average read length in class.  Lets pick this sample for the purpose of the exercise: SRX3577904
+I'll show you how to find the average read length in class.  Lets pick this sample for the purpose of the exercise: SRX3577904
 It is labeled as "Uncultivated genome  	Shewanella sp.". Lets see if we can confirm this.  Start by getting your data and trimming the reads.  Don't worry about trimming adapters.
 
 ```sh
@@ -35,7 +35,7 @@ read_fastq -e base_33 -i SRX3577904_2.fastq | trim_seq -m 30 -l 8 --trim=right |
 
 ```
 
-We will now use as search tool called 'usearch' to compare each of the reads to the SILVA reference data set.  About 1 in 1000 genes in a typical genome codes for a 16S rRNA gene.  We downloaded 400000 reads so we should expect about 400 hits.  That sufficient to assmeble the complete 16S sequence, so we'll only need to run the forward reads (you'd get another 400 if you ran the reverse reads):
+We will now use as search tool called 'usearch' to compare each of the reads to the SILVA reference data set.  About 1 in 1000 genes in a typical genome codes for a 16S rRNA gene.  We downloaded 400000 reads so we should expect about 400 hits.  That should be sufficient to assemble the complete 16S sequence, so we'll only need to run the forward reads (you'd get another 400 if you ran the reverse reads):
 
 ```sh
 usearch -usearch_global SRX3577904_1.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
@@ -58,7 +58,7 @@ Ray -k 15 -s f_h.fasta -o ray_SRX3577904_16S/
 chmod 777 ray_SRX3577904_16S/
 ```
 
-Now go into the assmely subfolder and find the Contigs.fasta file. Open it with wordpad (don't use notepad; it doesn't know how to wrap the text correctly for a linux text file).  The contents like something like this:
+Now go into the assembly subfolder and find the Contigs.fasta file. Open it with wordpad (don't use notepad; it doesn't know how to wrap the text correctly for a linux text file).  The contents like something like this:
 
 ```sh
 >contig-0 185 nucleotides
@@ -74,11 +74,11 @@ CTCGGGTGTACCACTATCTTCAGATTTTCAAAAAAATGAAAATCATGCGATACACCCGTA
 GCTCAGCTGGTTAGAGCACTACCTTGACATGGTAGGGGTCGGTGGTTCGAGT
 ```
 
-A 16S rRNA gene is about 1500 bp in legnth.  These are really crummy contigs... hmmmm... what could have happened ?  Lets sort it out using BLAST and the Ribosomal RNA Database Project.
+A 16S rRNA gene is about 1500 bp in length.  These are really crummy contigs... hmmmm... what could have happened ?  Lets sort it out using BLAST and the Ribosomal RNA Database Project.
 
 ### Using BLAST
 
-Once you have retrieved your 16S contig you can typically get a rough idea what orgnanism you are dealing with by ‘BLASTing” your sequence against the NCBI database.  We'll do this two ways.  We'll use a web-interface, and (later) I will show you how to set up your own blast database locally.  For now, we'll use the web-search. Go to the NCBI blast website:
+Once you have retrieved your 16S contig you can typically get a rough idea what organism you are dealing with by ‘BLASTing” your sequence against the NCBI database.  We'll do this two ways.  We'll use a web-interface, and (later) I will show you how to set up your own blast database locally.  For now, we'll use the web-search. Go to the NCBI blast website:
 
 https://blast.ncbi.nlm.nih.gov/Blast.cgi
 
@@ -87,7 +87,7 @@ Select the BLASTN function. This will open the Standard Nucleotide BLAST web-pag
 
 You will be directed to a results window, where you will wait for your sequence to be ‘BLASTed’ against the entire nr database.  Once the search is finished, you will see an output that will include a visual of the top 100 BLAST hits.  Below that, you will see the ‘Descriptions’, which includes the Description of each of the top 100 sequences along with statistics of how well your sequence matched those listed.  Key parameters include the Max score, E value and the Identity (%).  You will also see an Accession number.  This link will take you to the GenBank record for the sequence that you choose.  This will contain information about the origin of the sequence that your sequence is very similar to. 
 
-Did that happend for the SRX3577904 containing Shewanella data ? 
+Did that happen for the SRX3577904 containing Shewanella data ? 
 
 As an alternative search tool, lets try the seq-match function of the Ribosomal RNA Database Project :
 
@@ -139,7 +139,7 @@ Now go and open the ray_diox_16S/Contigs.fasta file.  There are three contigs, t
 
 ![blast output](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/blastN.PNG)
 
-Good, you now have a great blast hit, but you'll notice that the red bar covers only part of your contig.  This happens beacue the reads run over the end of the gene.  16S rRNA genes are only ~1,500 base pairs, so you'll need to trim the edges for the next step.  Look at the alignment below, find the start and stop position and trim your sequence accordingly. Hint: text searchers really help.
+Good, you now have a great blast hit, but you'll notice that the red bar covers only part of your contig.  This happens because the reads run over the end of the gene.  16S rRNA genes are only ~1,500 base pairs, so you'll need to trim the edges for the next step.  Look at the alignment below, find the start and stop position and trim your sequence accordingly. Hint: text searchers really help.
 
 ![alignment](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/blast_alignment.PNG)
 
@@ -176,12 +176,12 @@ TGTTAGGCCTGCCGCCAGCGTTCAATCTGAGCCATGATCAAACTC
 
 Save this as a text file on your computer. You'll need this for the next step.
 
-Lets go back to Seq-Match -- you'll see that this time, you get very confident identifiation of a pseudomonad.
+Lets go back to Seq-Match -- you'll see that this time, you get very confident identification of a pseudomonad.
 
 ![good match](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/seq_match_good.PNG)
 
 
-### Phhylogenetically informed analysis
+### Phylogenetically informed analysis
 
 Now that we have a quick an dirty look at the potential taxonomy of your single cell genome, we will want to do a more refined and comprehensive analysis of your isolate’s 16S rRNA sequence taxonomy and phylogeny.  For this, go to the homepage of the Ribosomal Database Project website:
 
@@ -206,7 +206,7 @@ At this point, we want to select several sequences at varying phylogenetic and t
 
 Download the sequences that you have selected (by clicking on the “download” link at the top of the page).  Make sure that the number of myRDP and public sequences selected is what you expect to be selected. You will want to download the sequences as Fasta, unaligned. 
 
-### Making an Allignment
+### Making an Alignment
 
 Navigate to the EMBLEBI webpage for multiple sequence alignment programs:
 
@@ -244,7 +244,7 @@ You can view your tree file with cat:
 cat tree.phy
 ```
 
-or by importint it into FigTree.
+or by importing it into FigTree.
 
 Enjoy !
 
