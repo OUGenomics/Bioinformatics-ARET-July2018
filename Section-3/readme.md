@@ -43,7 +43,7 @@ read_fastq -i filename.fastq | write_fasta -o filename.fasta -x
 As in Section 2, we now run a search of all the reads against the SILVA reference file:
 
 ```sh
-usearch -usearch_global CAM_SMPL_SRA022063.fa -db SSURef_111_candidate_db.udb -id 0.7 -fastapairs f_hits.fasta -strand both -mincols 50 -maxhits 1 -qsegout CAM_SMPL_Fhits.fasta -blast6out CAM_SMPL_Fhits.tab
+usearch -usearch_global CAM_SMPL_SRA022063.fa -db SSURef_111_candidate_db.udb -id 0.7 -strand both -maxhits 1 -qsegout CAM_SMPL_Fhits.fasta -blast6out CAM_SMPL_Fhits.tab
 ```
 As before,  you'll need to do some data processing:
 
