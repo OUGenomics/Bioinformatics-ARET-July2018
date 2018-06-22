@@ -59,7 +59,12 @@ The file "h.fasta" contains your 16S reads, this time not from an isolate but ra
 
 ![rdp classifier community](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/rdp_classifier_community.PNG)
 
-Looks like some proteobacteri, some actinobacteria, and lots of unknown things. Awesome !
+Looks like some proteobacteri, some actinobacteria, and lots of unknown things. Awesome (!), but it is a very unsophisticated way of solving the problem. Next I'll show you how a microbiome is analyzed using a software suite called Qiime.
+
+### Running Qiime
+
+
+
 
 
 
