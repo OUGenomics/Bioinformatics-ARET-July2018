@@ -28,14 +28,18 @@ I'll show you how to tind the average read length in class.  I picked this sampl
 
 ```sh
 fastq-dump -I --split-files SRX3577904 -X 400000
+
+read_fastq -e base_33 -i SRX3577904_1.fastq | trim_seq -m 30 -l 8 --trim=right | write_fastq -o SRX3577904_1.q30.fastq -x
+read_fastq -e base_33 -i SRX3577904_2.fastq | trim_seq -m 30 -l 8 --trim=right | write_fastq -o SRX3577904_2.q30.fastq -x
+
 ```
 
 We will now use as search tool called 'usearch' to compare each of the reads to the SILVA reference data set:
 
 
 ```sh
-usearch -usearch_global SRX3577904_1.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
-usearch -usearch_global SRX3577904_2.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
+usearch -usearch_global SRX3577904_1.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Fhits.fasta -blast6out Fhits.tab
+usearch -usearch_global SRX3577904_2.q30.fastq -db SILVA_108.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout Rhits.fasta -blast6out Rhits.tab
 ```
 
 The search will take a while. After it completes, you'll need to do some data processing:
@@ -44,6 +48,7 @@ The search will take a while. After it completes, you'll need to do some data pr
 cut -d \t Fhits.tab -f2 | awk '{print $1}' > f_h.txt
 grep -A 1 -f f_h.txt SRX3577904_1.fastq > f_h.fas
 sed '/--/d' f_h.fas > f_h.fasta
+
 
 cut -d \t Rhits.tab -f2 | awk '{print $1}' > r_h.txt
 grep -A 1 -f r_h.txt SRX3577904_2.fastq > r_h.fas
