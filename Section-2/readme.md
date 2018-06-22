@@ -64,12 +64,12 @@ usearch -usearch_global diox_r_cutadapt.fastq -db SILVA_108.udb -id 0.7 -strand 
 
 
 cut -d \t dFhits.tab -f2 | awk '{print $1}' > df_h.txt
-grep -A 1 -f f_h.txt diox_f_cutadapt.fastq > df_h.fas
+grep -A 1 -f df_h.txt diox_f_cutadapt.fastq > df_h.fas
 sed '/--/d' df_h.fas > df_h.fasta
 
 
 cut -d \t dRhits.tab -f2 | awk '{print $1}' > dr_h.txt
-grep -A 1 -f r_h.txt diox_r_cutadapt.fastq > dr_h.fas
+grep -A 1 -f dr_h.txt diox_r_cutadapt.fastq > dr_h.fas
 sed '/--/d' dr_h.fas > dr_h.fasta
 ```
 
