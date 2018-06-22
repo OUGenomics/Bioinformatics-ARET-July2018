@@ -45,24 +45,25 @@ As in Section 2, we now run a search of all the reads against the SILVA referenc
 ```sh
 usearch -usearch_global CAM_SMPL_SRA022063.fa -db SSURef_111_candidate_db.udb -id 0.7 -fastapairs COM_SMPL_Fhits.fasta
 ```
-
+You will also need to process the file.  We'll have to do it slighlty differently, because I am using a fasta instead of a fastq file. You'll need to grap a perl script and run several shell commands:
 
 ```sh
 wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/parse_hits.pl
 perl parse_hits.pl COM_SMPL_Fhits.fasta HITS.fasta
-```
-
-
-As before,  you'll need to do some data processing:
-
-```sh
 read_fasta -i CAM_SMPL_SRA022063.fa | grab -E HITS.fasta.tags | write_fasta -o HITS.seqs.fasta -x
-```
-```
 grep -A 1 -f HITS.fasta.tags CAM_SMPL_SRA022063.fa > h.fas
 sed '/--/d' h.fas > h.fasta
-```sh
-system ("read_fasta -i temp/fr.fasta | grab -E ".$output_name.".tags | write_fasta -o ".$output_name.".fseqs.fasta -x");
+```
+
+The file "h.fasta" contains your 16S reads, this time not from an isolate but rather from an community.  Lets take this to the RDP classifier to get a rough idea what we have in the file:
+
+![rdp classifier community](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/rdp_classifier_community.PNG)
+
+Looks like some proteobacteri, some actinobacteria, and lots of unknown things. Awesome !
+
+
+
+
 
 
 
