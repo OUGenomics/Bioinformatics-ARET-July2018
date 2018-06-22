@@ -52,7 +52,7 @@ wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/parse_hits.pl
 perl parse_hits.pl COM_SMPL_Fhits.fasta HITS.fasta
 read_fasta -i CAM_SMPL_SRA022063.fa | grab -E HITS.fasta.tags | write_fasta -o HITS.seqs.fasta -x
 grep -A 1 -f HITS.fasta.tags CAM_SMPL_SRA022063.fa > h.fas
-sed '/--/d' h.fas > h.fasta
+sed '/--/d' h.fas > MG_16_seqs.fasta
 ```
 
 The file "h.fasta" contains your 16S reads, this time not from an isolate but rather from an community.  Lets take this to the RDP classifier to get a rough idea what we have in the file:
@@ -63,6 +63,81 @@ Looks like some proteobacteri, some actinobacteria, and lots of unknown things. 
 
 ### Running Qiime
 
+The first thing you will need to do is exit the bioinformatics docker.  For qiime, you'll need a second container. Qiime is not packaged into the bioinformatics container because it uses some older versions of certain dependencies, making some of the software incompatible without constant version maintenance.  Pull my qiime docker:
+
+```sh
+docker pull bwawrik/qiime:latest
+```
+... and fire it up:
+```so
+docker run -t -i -v c:/docker_data/data/:/data bwawrik/qiime:latest
+```
+ 
+You will also need a barcodes file, the add_tag.pl script, and a script to remove duplicates
+
+```sh
+cd /data
+wget https://github.com/bwawrik/MBIO5810/raw/master/sequence_data/barcodes.txt
+wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/add_tag.pl
+wget https://github.com/bwawrik/MBIO5810/raw/master/sequence_data/qiime_default.par
+```
+
+- Add a barcode from the barcodes.txt file.  Lets use the third one in the list.
+
+```sh
+perl add_tag.pl 3 ssu_hits_corrected.fasta
+```
+
+- Validate the mapping file
+
+```sh
+validate_mapping_file.py -m ssu_hits_corrected.map -o mg_mapping
+```
+
+- Split libraries
+
+```sh
+split_libraries.py -f ssu_hits_correctedATCACCAGGTGT.fasta -m  ssu_hits_corrected.map -o mg_processed_seqs/ --barcode_type 12
+```
+
+- Validate the fasta file
+
+```sh
+validate_demultiplexed_fasta.py -i mg_processed_seqs/seqs.fna -m  ssu_hits_corrected.map
+cat seqs.fna_report.log
+```
+
+- Lets pick our OTUs and assign taxonomy via closed reference picking
+note: closed reference is necessary, because reads don't overlap;
+ 
+```sh
+pick_closed_reference_otus.py -i mg_processed_seqs/seqs.fna -o mg_OTUs -r /data/DATABASES/16S/Silva_111_post/rep_set/97_Silva_111_rep_set.fasta  -t /data/DATABASES/16S/Silva_111_post/taxonomy/97_Silva_111_taxa_map_RDP_6_levels.txt -f
+(* on  your mac: pick_closed_reference_otus.py -i mg_processed_seqs/seqs.fna -o mg_OTUs -r ~/data/DATABASES/16S/Silva_111_post/rep_set/97_Silva_111_rep_set.fasta  -t ~/data/DATABASES/16S/Silva_111_post/taxonomy/97_Silva_111_taxa_map_RDP_6_levels.txt -f)
+```
+
+- Inspect the BIOM file
+
+```sh
+biom summarize-table -i mg_OTUs/otu_table.biom
+```
+ 
+- Make a pie chart
+
+```sh
+summarize_taxa_through_plots.py -i mg_OTUs/otu_table.biom -o mg_taxplots -m  ssu_hits_corrected.map -p qiime_default.par -f
+```
+
+- The parameters file contains one line:
+
+```sh
+plot_taxa_summary:chart_type bar
+```
+
+- If you would like to make a pie chart instead, edit the the parameters file with nano to:
+
+```sh
+plot_taxa_summary:chart_type pie
+```
 
 
 
