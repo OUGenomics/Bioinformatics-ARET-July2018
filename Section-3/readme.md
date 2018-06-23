@@ -61,14 +61,40 @@ The file "h.fasta" contains your 16S reads, this time not from an isolate but ra
 
 Looks like some proteobacteri, some actinobacteria, and lots of unknown things. Awesome (!), but it is a very unsophisticated way of solving the problem. Next I'll show you how a microbiome is analyzed using a software suite called Qiime.
 
+### Installing the SILVA Database for use with Qiime
+
+You'll need a more complete verison of the Silva111 database than we have been using so far.  Lets downlaod version 111 and install it into your data drive:
+ 
+```sh
+mkdir -p /data/DATABASES/16S
+cd /data/DATABASES/16S
+wget http://www.arb-silva.de/fileadmin/silva_databases/qiime/Silva_111_release.tgz
+tar -xvf Silva_111_release.tgz
+cd Silva_111_post/rep_set_aligned
+gunzip *
+cd ..
+cd rep_set
+gunzip *
+```
+
+Do you understand what happened here ?
+
+Now exit bwawrik/bioinformatics by typing
+
+```sh
+exit
+```
+This should return you to the windows powershell prompt.  Sometimes you might have to type exit more than once.
+
 ### Running Qiime
 
-The first thing you will need to do is exit the bioinformatics docker.  For qiime, you'll need a second container. Qiime is not packaged into the bioinformatics container because it uses some older versions of certain dependencies, making some of the software incompatible without constant version maintenance.  Pull my qiime docker:
+To run Qiime, the first thing you will need to do is exit the bioinformatics docker.  For qiime, you'll need a second container. Qiime is not packaged into the bioinformatics container because it uses some older versions of certain dependencies, making some of the software incompatible without constant version maintenance.  Pull my qiime docker:
 
 ```sh
 docker pull bwawrik/qiime:latest
 ```
 ... and fire it up:
+
 ```so
 docker run -t -i -v c:/docker_data/data/:/data bwawrik/qiime:latest
 ```
