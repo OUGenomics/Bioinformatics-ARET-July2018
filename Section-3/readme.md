@@ -130,7 +130,7 @@ Lets make sure its a valid map file:
 validate_mapping_file.py -m MG_16_seqs.map -o mg_mapping
 ```
 
-- Split libraries
+### Split libraries
 
 ```sh
 split_libraries.py -f MG_16_seqsATCACCAGGTGT.fasta -m MG_16_seqs.map -o mg_processed_seqs/ --barcode_type 12
@@ -149,38 +149,44 @@ Validate the fasta file
 validate_demultiplexed_fasta.py -i mg_processed_seqs/seqs.fna -m  MG_16_seqs.map
 cat seqs.fna_report.log
 ```
+### Picking OTUs
 
-- Lets pick our OTUs and assign taxonomy via closed reference picking
+Lets pick our OTUs and assign taxonomy via closed reference picking
 note: closed reference is necessary, because reads don't overlap;
  
 ```sh
 pick_closed_reference_otus.py -i mg_processed_seqs/seqs.fna -o mg_OTUs -r /data/DATABASES/16S/Silva_111_post/rep_set/97_Silva_111_rep_set.fasta  -t /data/DATABASES/16S/Silva_111_post/taxonomy/97_Silva_111_taxa_map_RDP_6_levels.txt -f
 ```
 
-- Inspect the BIOM file
+Inspect the BIOM file
 
 ```sh
 biom summarize-table -i mg_OTUs/otu_table.biom
 ```
  
-- Make a pie chart
+### Make a pie chart
 
 ```sh
-summarize_taxa_through_plots.py -i mg_OTUs/otu_table.biom -o mg_taxplots -m  ssu_hits_corrected.map -p qiime_default.par -f
+summarize_taxa_through_plots.py -i mg_OTUs/otu_table.biom -o mg_taxplots -m  MG_16_seqs.map -p qiime_default.par -f
 ```
+I'll show you how to find the output.
 
-- The parameters file contains one line:
+![tax output](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/tax_piechart.PNG)
+
+The parameters file contains one line:
 
 ```sh
 plot_taxa_summary:chart_type bar
 ```
 
-- If you would like to make a pie chart instead, edit the the parameters file with nano to:
+If you would like to make a pie chart instead, edit the the parameters file with nano to:
 
 ```sh
 plot_taxa_summary:chart_type pie
 ```
+## Group assignment
 
+Everyone should bring their barcoded fasta file and mapping file to me. We'll run all samples together for visualizatoin.
 
 
 ## Lunchtime Assignment
