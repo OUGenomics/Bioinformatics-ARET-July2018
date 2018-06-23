@@ -180,11 +180,11 @@ plot_taxa_summary:chart_type pie
 
 ## Lunchtime Assignment
 
-Run an assembly of your metagenome over lunch.  This can take a while and we'll need the data for section 4.  Remember to make a small subset of the data and then run a few assmelies at different kmers to see which is best. If we are short on time, just use 25:
+Run an assembly of your metagenome over lunch.  This can take a while and we'll need the data for section 4.  Remember to make a small subset of the data and then run a few assmelies at different kmers to see which is best. If we are short on time, just use 25. For example:
 
 
 ```sh
-Ray -k 25 -n 4 -minimum-contig-length 500 -s SCAM_SMPL_SRA022063.fa -o SCAM_SMPL_SRA022063_k25/
+Ray -k 25 -n 4 -minimum-contig-length 500 -s CAM_SMPL_SRA022063.fa -o CAM_SMPL_SRA022063_k25/
 ```
 
 
