@@ -4,7 +4,7 @@
 
 ## Identifying and Downloading a Sequence File
 
-Today, we'll use a different data repostiory.  The SRA is the largest and most widely used repository, but there are others. We'll try the [iMicrobe website](https://www.imicrobe.us/) for today's exercises. Choose browse to look at the different data sets that are available:
+Today, we'll use a different data repository.  The SRA is the largest and most widely used repository, but there are others. We'll try the [iMicrobe website](https://www.imicrobe.us/) for today's exercises. Choose browse to look at the different data sets that are available:
 
 ![choose browse on imicrobe](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/imicrobe_home.PNG)
 
@@ -18,7 +18,7 @@ Clicking through to the samples I can find the data file.  A link to the reads c
 
 https://de.cyverse.org/anon-files//iplant/home/shared/imicrobe/projects/4/samples/71/CAM_SMPL_SRA022063.fa
 
-Everyone should find their own dataset to work on.  Idenfity the link to the reads and download the data using wget. In my case:
+Everyone should find their own dataset to work on.  Identify the link to the reads and download the data using wget. In my case:
 
 ```sh
 wget https://de.cyverse.org/anon-files//iplant/home/shared/imicrobe/projects/4/samples/71/CAM_SMPL_SRA022063.fa
@@ -30,7 +30,7 @@ We'll also need a SILVA reference dataset.  Lets grab one from my server and mak
 ```sh 
 wget http://mgmic.oscer.ou.edu/sequence_data/tutorials/SSURef_111_candidate_db.fasta
 ```
-- Prepare 16S database for searching by creating a UDB datase as follows
+- Prepare 16S database for searching by creating a UDB database as follows
 ```sh 
 usearch -makeudb_usearch SSURef_111_candidate_db.fasta -output SSURef_111_candidate_db.udb
 ```
@@ -45,7 +45,7 @@ As in Section 2, we now run a search of all the reads against the SILVA referenc
 ```sh
 usearch -usearch_global CAM_SMPL_SRA022063.fa -db SSURef_111_candidate_db.udb -id 0.7 -fastapairs COM_SMPL_Fhits.fasta -strand both
 ```
-You will also need to process the file.  We'll have to do it slighlty differently, because I am using a fasta instead of a fastq file. You'll need to grap a perl script and run several shell commands:
+You will also need to process the file.  We'll have to do it slightly differently, because I am using a fasta instead of a fastq file. You'll need to grab a perl script and run several shell commands:
 
 ```sh
 wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/parse_hits.pl
@@ -58,11 +58,11 @@ The file "h.fasta" contains your 16S reads, this time not from an isolate but ra
 
 ![rdp classifier community](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/rdp_classifier_community.PNG)
 
-Looks like some proteobacteri, some actinobacteria, and lots of unknown things. Awesome (!), but it is a very unsophisticated way of solving the problem. Next I'll show you how a microbiome is analyzed using a software suite called Qiime.
+Looks like some proteobacteria, some actinobacteria, and lots of unknown things. Awesome (!), but it is a very unsophisticated way of solving the problem. Next I'll show you how a microbiome is analyzed using a software suite called Qiime.
 
 ### Installing the SILVA Database for use with Qiime
 
-You'll need a more complete verison of the Silva111 database than we have been using so far.  Lets downlaod version 111 and install it into your data drive:
+You'll need a more complete version of the Silva111 database than we have been using so far.  Lets download version 111 and install it into your data drive:
  
 ```sh
 mkdir -p /data/DATABASES/16S
@@ -98,7 +98,7 @@ docker pull bwawrik/qiime:latest
 docker run -t -i -v c:/docker_data/data/:/data bwawrik/qiime:latest
 ```
  
-You will need a few other filed.  First, you need a barcodes file.  This file contains unique tags that can be added to the sequences in a file.  That way we can catenate multiple files later (each tagged with a different barcode) and analyze them together.  The add_tag.pl script is a little perl magic that actually does the tagging.  Lastly, you'll need a quime configureation file call qiime_default.par.
+You will need a few other filed.  First, you need a barcodes file.  This file contains unique tags that can be added to the sequences in a file.  That way we can catenate multiple files later (each tagged with a different barcode) and analyze them together.  The add_tag.pl script is a little perl magic that actually does the tagging.  Lastly, you'll need a Qiime configuration file call qiime_default.par.
 
 ```sh
 cd /data
@@ -118,12 +118,12 @@ head -n 10 filename
 
 ### Adding Barcodes
 
-Add a barcode from the barcodes.txt file.  We will make a list on the board. Each person is using a different metagenome. I want each person to use a differnt tag so we can analyze things together later.  I will use tag 3 in this example:
+Add a barcode from the barcodes.txt file.  We will make a list on the board. Each person is using a different metagenome. I want each person to use a different tag so we can analyze things together later.  I will use tag 3 in this example:
 
 ```sh
 perl add_tag.pl 3 MG_16_seqs.fasta
 ```
-This script will prduce a map file.  Open it with nano to inspect it.  Adding more lines here will let you combine samples.
+This script will produce a map file.  Open it with nano to inspect it.  Adding more lines here will let you combine samples.
 Lets make sure its a valid map file:
 
 ```sh
@@ -179,19 +179,19 @@ The parameters file contains one line:
 plot_taxa_summary:chart_type bar
 ```
 
-If you would like to make a pie chart instead, edit the the parameters file with nano to:
+If you would like to make a pie chart instead, edit the parameters file with nano to:
 
 ```sh
 plot_taxa_summary:chart_type pie
 ```
 ## Group assignment
 
-Everyone should bring their barcoded fasta file and mapping file to me. We'll run all samples together for visualizatoin.
+Everyone should bring their barcoded fasta file and mapping file to me. We'll run all samples together for visualization.
 
 
 ## Lunchtime Assignment
 
-Run an assembly of your metagenome over lunch.  This can take a while and we'll need the data for section 4.  Remember to make a small subset of the data and then run a few assmelies at different kmers to see which is best. If we are short on time, just use 25. For example:
+Run an assembly of your metagenome over lunch.  This can take a while and we'll need the data for section 4.  Remember to make a small subset of the data and then run a few assemblies at different kmers to see which is best. If we are short on time, just use 25. For example:
 
 
 ```sh
