@@ -127,19 +127,26 @@ This script will prduce a map file.  Open it with nano to inspect it.  Adding mo
 Lets make sure its a valid map file:
 
 ```sh
-validate_mapping_file.py -m sMG_16_seqs.map -o mg_mapping
+validate_mapping_file.py -m MG_16_seqs.map -o mg_mapping
 ```
 
 - Split libraries
 
 ```sh
-split_libraries.py -f MG_16_seqsATCACCAGGTGT.fasta -m  ssu_hits_corrected.map -o mg_processed_seqs/ --barcode_type 12
+split_libraries.py -f MG_16_seqsATCACCAGGTGT.fasta -m MG_16_seqs.map -o mg_processed_seqs/ --barcode_type 12
 ```
-
-- Validate the fasta file
+Look at the histogram and stats:
 
 ```sh
-validate_demultiplexed_fasta.py -i mg_processed_seqs/seqs.fna -m  ssu_hits_corrected.map
+cat mg_processed_seqs/histograms.txt
+cat mg_processed_seqs/split_library_log.txt
+```
+What do these files tell you ?
+
+Validate the fasta file
+
+```sh
+validate_demultiplexed_fasta.py -i mg_processed_seqs/seqs.fna -m  MG_16_seqs.map
 cat seqs.fna_report.log
 ```
 
@@ -148,7 +155,6 @@ note: closed reference is necessary, because reads don't overlap;
  
 ```sh
 pick_closed_reference_otus.py -i mg_processed_seqs/seqs.fna -o mg_OTUs -r /data/DATABASES/16S/Silva_111_post/rep_set/97_Silva_111_rep_set.fasta  -t /data/DATABASES/16S/Silva_111_post/taxonomy/97_Silva_111_taxa_map_RDP_6_levels.txt -f
-(* on  your mac: pick_closed_reference_otus.py -i mg_processed_seqs/seqs.fna -o mg_OTUs -r ~/data/DATABASES/16S/Silva_111_post/rep_set/97_Silva_111_rep_set.fasta  -t ~/data/DATABASES/16S/Silva_111_post/taxonomy/97_Silva_111_taxa_map_RDP_6_levels.txt -f)
 ```
 
 - Inspect the BIOM file
