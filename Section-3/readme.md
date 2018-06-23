@@ -198,7 +198,18 @@ Run an assembly of your metagenome over lunch.  This can take a while and we'll 
 Ray -k 25 -n 4 -minimum-contig-length 500 -s CAM_SMPL_SRA022063.fa -o CAM_SMPL_SRA022063_k25/
 ```
 
+took about 90 min for my data set:
 
+```sh
+Since beginning: 1 hours, 32 minutes, 39 seconds
+Contigs >= 500 nt
+ Number: 785
+ Total length: 1219521
+ Average: 1553
+ N50: 2372
+ Median: 888
+ Largest: 16647
+```
 
 
 
