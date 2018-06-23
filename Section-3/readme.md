@@ -40,7 +40,7 @@ If you are using a dataset that is in fastq format, you'll need to convert the d
 read_fastq -i filename.fastq | write_fasta -o filename.fasta -x
 ```
 
-As in Section 2, we now run a search of all the reads against the SILVA reference file:
+As in Section 2, we now run a search of all the reads against the SILVA reference file.  It might be useful to limit yourself to 100k reads so the search can be completed in a reasonable time frame for this class -- this depends somewhat on the size of the metagenome you picked.  I picked a fairly large one for my example:
 
 ```sh
 usearch -usearch_global CAM_SMPL_SRA022063.fa -db SSURef_111_candidate_db.udb -id 0.7 -fastapairs COM_SMPL_Fhits.fasta -strand both
