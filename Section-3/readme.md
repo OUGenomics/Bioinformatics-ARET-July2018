@@ -98,21 +98,17 @@ Add a barcode from the barcodes.txt file.  We will make a list on the board. Eac
 ```sh
 perl add_tag.pl 3 MG_16_seqs.fasta
 ```
-Open the mappting file with nano. Currently it reads:
+This script will prduce a map file.  Open it with nano to inspect it.  Adding more lines here will let you combine samples.
+Lets make sure its a valid map file:
 
 ```sh
-
-```
-
-
-```sh
-validate_mapping_file.py -m ssu_hits_corrected.map -o mg_mapping
+validate_mapping_file.py -m sMG_16_seqs.map -o mg_mapping
 ```
 
 - Split libraries
 
 ```sh
-split_libraries.py -f ssu_hits_correctedATCACCAGGTGT.fasta -m  ssu_hits_corrected.map -o mg_processed_seqs/ --barcode_type 12
+split_libraries.py -f MG_16_seqsATCACCAGGTGT.fasta -m  ssu_hits_corrected.map -o mg_processed_seqs/ --barcode_type 12
 ```
 
 - Validate the fasta file
