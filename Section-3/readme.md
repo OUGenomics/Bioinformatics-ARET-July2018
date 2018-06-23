@@ -50,7 +50,6 @@ You will also need to process the file.  We'll have to do it slighlty differentl
 ```sh
 wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/parse_hits.pl
 perl parse_hits.pl COM_SMPL_Fhits.fasta HITS.fasta
-read_fasta -i CAM_SMPL_SRA022063.fa | grab -E HITS.fasta.tags | write_fasta -o HITS.seqs.fasta -x
 grep -A 1 -f HITS.fasta.tags CAM_SMPL_SRA022063.fa > h.fas
 sed '/--/d' h.fas > MG_16_seqs.fasta
 ```
