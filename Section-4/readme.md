@@ -86,9 +86,23 @@ perl N50.pl prodigal/orfs.fna
 Which one produces longers ORFs ? Which produces more ORFs ? Which is better ? Why ? What would be a better way to assess the quality of ORF calling ?
 
 
-### Finding rRNA and tRNA genes
+### Finding tRNA and rRNA genes
+
+Lets start with tRNAs.  You can  use the web-portal above, and that is great. However, you are essentially tied ot the computational resources of someone else.  If they are busy, the server goes down, or your sequence file is too large, you will be stuck.  There are also many situations where you potentially have a large batch of sequences to check.  Most 'free' services will not be able to handle that sort of large data load.  In these situations, it is necessary to run requistie software locally. For rRNAScan-SE, you can find the documentation here:
+
+http://lowelab.ucsc.edu/software/tRNAscan-SE-1.23.README
+
+To run the program locally, first make an output directory and then run it on your contigs file:
+
+```sh
+mkdir tRNAscan
+
+```
 
 
+rRNAmmer
+
+perl rnammer -s bac -m lsu,ssu,tsu -gff - <example/ecoli.fsa
 
 ### Pairwise Blast -- Genome-to-Genome Comparison
 
