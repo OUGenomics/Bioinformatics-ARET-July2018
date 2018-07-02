@@ -35,6 +35,44 @@ Can you learn somehting interesting from this ?
 
 ### Predicting Proteins and Extracting ORFs
 
+Lets predict protein coding genes using two different methods called Prodigal and FragGeneScan:
+
+### Prodigal
+
+https://github.com/hyattpd/Prodigal
+
+To predict ORFs as nucleotide (fna) and amio acid (faa) sequences do the following with your Contigs.fna file:
+
+```sh 
+prodigal -d orfs.fna -a output/temp.orfs.faa -i pipeline_mg_contigs.fas -m -o output/tempt.txt -p meta -q
+cut -f1 -d " " output/temp.orfs.fna > output/prodigal.orfs.fna
+cut -f1 -d " " output/temp.orfs.faa > output/prodigal.orfs.faa
+rm -f output/temp*
+```
+
+You can do this separately by just call the ' -d output/temp.orfs.fna' or '-a output/temp.orfs.faa' flags.  The last command removes the temporary files.
+
+### FragGeneScan
+
+- First you need to copy the model files to the local directory. (This is a workaround; I'm not sure why it doesn't work without copying these files; sorry !)
+
+```sh 
+mkdir Ftrain
+cp /opt/local/software/FragGeneScan1.19/train/* Ftrain
+```
+
+- Now lets predict the ORFs
+
+```sh 
+FragGene_Scan -s VigP03RayK31Contigs.fasta -o output/VigP03RayK31.FragGeneScan -w 1 -t complete
+```
+
+- Clean up
+
+```sh 
+rm -rf Ftrain
+```
+
 
 
 ### Finding rRNA and tRNA genes
