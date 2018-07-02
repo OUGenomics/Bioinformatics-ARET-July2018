@@ -51,27 +51,27 @@ cd /data
 To predict ORFs as nucleotide (fna) and amio acid (faa) sequences do the following with your Contigs.fna file:
 
 ```sh 
-prodigal -d orfs.fna -a output/temp.orfs.faa -i pipeline_mg_contigs.fas -m -o output/tempt.txt -p meta -q
-cut -f1 -d " " output/temp.orfs.fna > output/prodigal.orfs.fna
-cut -f1 -d " " output/temp.orfs.faa > output/prodigal.orfs.faa
-rm -f output/temp*
+prodigal -d prodigal/temp.orfs.fna -a prodigal/temp.orfs.faa -i contigs.fna -m -o prodigal/scores.txt -p meta -q
 ```
-
-You can do this separately by just call the ' -d output/temp.orfs.fna' or '-a output/temp.orfs.faa' flags.  The last command removes the temporary files.
+You can clean the output file up a little using a cut command:
+```sh 
+cut -f1 -d " " prodigal/temp.orfs.fna > prodigal/orfs.fna
+cut -f1 -d " " prodigal/temp.orfs.faa > prodigal/orfs.faa
+```
 
 ### FragGeneScan
 
-- First you need to copy the model files to the local directory. (This is a workaround; I'm not sure why it doesn't work without copying these files; sorry !)
-
+OK, now lets do it a different way using FragGeneScan.  Start by making an output directory.  Then you'll need to copy the training set into a local directory. This is a workaround; I'm not sure why it doesn't work without copying these files; sorry !) :
 ```sh 
-mkdir Ftrain
-cp /opt/local/software/FragGeneScan1.19/train/* Ftrain
+mkdir /data/FragGeneScan
+mkdir /data/Ftrain
+cp /opt/local/software/FragGeneScan1.19/train/* /data/Ftrain
 ```
 
-- Now lets predict the ORFs
+And now predict the ORFs:
 
 ```sh 
-FragGene_Scan -s VigP03RayK31Contigs.fasta -o output/VigP03RayK31.FragGeneScan -w 1 -t complete
+FragGene_Scan -s contigs.fna -o /data/FragGeneScan/output.FragGeneScan -w 1 -t complete
 ```
 
 - Clean up
