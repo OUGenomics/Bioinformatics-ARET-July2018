@@ -27,6 +27,12 @@ RAST is a wonderful, fast annoation tool that gives you some basic idea of the g
 
 Explore this graph a little.  Can you learn something about your critter ?  Does this make sense based on what you know about its ecology and origin ?
 
+Then lest look at the KEGG maps.  
+
+![kegg maps](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/kegg%20maps.PNG)
+
+Can you learn somehting interesting from this ?
+
 ### Predicting Proteins and Extracting ORFs
 
 
