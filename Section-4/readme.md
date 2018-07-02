@@ -60,6 +60,7 @@ cut -f1 -d " " prodigal/temp.orfs.faa > prodigal/orfs.faa
 ```
 
 ### FragGeneScan
+http://omics.informatics.indiana.edu/FragGeneScan/
 
 OK, now lets do it a different way using FragGeneScan.  Start by making an output directory.  Then you'll need to copy the training set into a local directory. This is a workaround; I'm not sure why it doesn't work without copying these files; sorry !) :
 ```sh 
@@ -74,11 +75,9 @@ And now predict the ORFs:
 FragGene_Scan -s contigs.fna -o /data/FragGeneScan/output.FragGeneScan -w 1 -t complete
 ```
 
-- Clean up
 
-```sh 
-rm -rf Ftrain
-```
+
+
 
 
 
