@@ -96,6 +96,7 @@ To run the program locally, first make an output directory and then run it on yo
 
 ```sh
 mkdir tRNAscan
+tRNAscan-SE -G -o tRNAscan/output.txt -a tRNAscan/outtab.txt -m tRNAscan/stats.txt
 
 ```
 
