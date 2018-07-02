@@ -75,6 +75,13 @@ And now predict the ORFs:
 FragGene_Scan -s contigs.fna -o /data/FragGeneScan/output.FragGeneScan -w 1 -t complete
 ```
 
+Which one produces longers ORFs ? Which produces more ORFs ? Which is better ? Why ? What would be a better way to assess the quality of ORF calling ?
+
+```sh
+wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/N50.pl
+perl N50.pl output/VigP03RayK31.FragGeneScan.ffn
+perl N50.pl output/VigP03RayK31.prodigal.orfs.fna
+```
 
 
 
