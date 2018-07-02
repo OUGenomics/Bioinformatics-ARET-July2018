@@ -6,18 +6,20 @@ We'll start the secion with a 5 minutes presentation from each person on what th
 
 The following websites will come in handy for this:
 
-rRNA prediction
+#### rRNA prediction
 http://www.cbs.dtu.dk/services/RNAmmer/
-tRNA prediction
+#### tRNA prediction
 http://lowelab.ucsc.edu/tRNAscan-SE/
-Protein prediction
+#### Protein prediction
 http://linux1.softberry.com/berry.phtml?topic=fgenesb&group=programs&subgroup=gfindb
-Annotation software
+#### Annotation software
 http://www.sanger.ac.uk/Software/Artemis/
-Database Blast seraches
+#### Database Blast seraches
 http://blast.ncbi.nlm.nih.gov/Blast.cgi
-Enzyme descriptions
+#### Enzyme descriptions
 http://www.ebi.ac.uk/embl/
+
+
 
 ### RAST Annotation
 
