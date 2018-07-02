@@ -41,6 +41,13 @@ Lets predict protein coding genes using two different methods called Prodigal an
 
 https://github.com/hyattpd/Prodigal
 
+Lets start by making a sub-directory called 'prodigal' to deposit our output:
+
+```sh 
+mkdir /data/prodigal
+cd /data
+```
+
 To predict ORFs as nucleotide (fna) and amio acid (faa) sequences do the following with your Contigs.fna file:
 
 ```sh 
