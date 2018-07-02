@@ -19,10 +19,13 @@ http://blast.ncbi.nlm.nih.gov/Blast.cgi
 #### Enzyme descriptions
 http://www.ebi.ac.uk/embl/
 
-
-
 ### RAST Annotation
 
+RAST is a wonderful, fast annoation tool that gives you some basic idea of the genomic content of your organisms:
+
+![RAST pie chart](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/RAST_pie.PNG)
+
+Explore this graph a little.  Can you learn something about your critter ?  Does this make sense based on what you know about its ecology and origin ?
 
 ### Predicting Proteins and Extracting ORFs
 
