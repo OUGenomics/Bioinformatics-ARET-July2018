@@ -117,4 +117,13 @@ Did you get the same result as on the web-portal ?
 
 ### Proportion of Arachae to Bacteria
 
+Microbial populations are made of both bacteria and archaea - but at what proportoin ? You can use metagenome analysis to figure this out by comparing all reads against a reference database of a single copy marker gene (SCMG).  SCMGs are genes which are only found once in each genome but are required to make a functional cell.  The 16S rRNA gene is not actually a SCMG, as it is frequently found twice, three, or four times or more in bacterial genomes (about once per megabase of sequence).  My preferred marker gene is rpoB.  We'll use two reference fasta files, one from bacteria and one from archaea. You can download these from this github entry here (lets put them in a sub-directory so we don't clutter things up):
+
+```sh
+mkdir rpoB
+wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/arc_rpoB_AA.faa
+
+```
+
+
 ### What proportion of a population carries a particular Gene ?
