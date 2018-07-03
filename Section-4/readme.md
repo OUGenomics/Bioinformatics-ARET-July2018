@@ -165,13 +165,66 @@ Use this data to make a Venn-diagram:
 
 ![genome2genome venn](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/venn.png)
 
-
-### KEGG Annotation -- and KEGG Mapping
-
-
-
-
 ### Assessing Genome Completeness
+
+Genome sequencing has become very routine, but rarely do you have a complete microbial genome after a simple Illumina run. In most cases, assuming that a genome is sequenced to a coverage of about 200x, you end up wwith 50-100 contigs of varying length.   Similarly, metagenomic binning or single cell genome sequencing typically only results in partial genome bins.  In these cases, it helps to be able to assess how complete the assembly is, i.e. what proportion of a bacterial genome is not captured by the assembly. In the above example, I show a dashed circle to indicate that we are likly missing the majority of the genome.  All things being equal and random sequencing we should be able to estimate tha proportion of missing genome data by  comparison to a database of single copy marker genes:
+
+```
+Wu, D.Y., Jospin, G., and Eisen, J.A. (2013) Systematic Identification of Gene Families for Use as "Markers" for Phylogenetic and Phylogeny-Driven Ecological Studies of Bacteria and Archaea and Their Major Subgroups. Plos One 8.
+```
+Download a reference marker hmm file. You'll need to get yourself the prodigal/orfs.faa file for this.
+
+```sh
+cd /data
+mkdir smc
+cp prodigal/orfs.faa smc
+cd smc
+wget https://github.com/bwawrik/MBIO5810/raw/master/sequence_data/sc_markers_bacteria.hmm
+```
+The .hmm file contains the models for 111 single copy markger genes found in all bacteria.
+
+Run the HMM search:
+
+The first step is to run an HMM search of your HMM models agains each of the amino acid sequences. I'm applying an E score of 1E-10 here. This is relatively conservative. The commands below are for the SDB_ONE.faa file. 
+
+```sh 
+hmmsearch -E 0.0000000001 --domtblout sscmarkers.out.txt sc_markers_bacteria.hmm orfs.faa > sscmarkers.hmmsearch.txt
+```
+
+"--domblout" creates a tab delimited output file which we will use to count the number of unique hits.  The other file contains the complete HMM search output in case you are interested in it.
+
+Lets break down the --domblout output and learn about piping. This command puts the content of the file out the screen:
+
+```sh
+cat sscmarkers.domtblout.txt
+```
+
+By using '|' we can 'pipe' the ouptut to another linux command such as 'sed or awk:
+
+
+```sh
+cat sscmarkers.domtblout.txt | sed '/^#/ d' | awk '{print $4}'
+```
+
+The 'sed' command removes all annoation lines, which start with a '#' character.
+the 'awk' command extracts the fourth column, which contains the single copy marker gene identifiers.
+
+
+- We can get the UNIQUE HITS using 'sort'
+
+```sh
+cat SDB_one_sscmarkers.domtblout.txt | sed '/^#/ d' | awk '{print $4}' | sort -u
+```
+
+- All that is left is to count them
+
+```sh
+cat SDB_one_sscmarkers.domtblout.txt | sed '/^#/ d' | awk '{print $4}' | sort -u | wc -l
+```
+
+#### SELF EVALUATION
+
+- Run the analysis on a complete genome you obtain from Genbank. Can you find all 111 single copy marker genes ?
 
 
 ## Metagenome Gene Frequencies
