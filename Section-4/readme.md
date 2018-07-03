@@ -140,16 +140,26 @@ usearch -makeudb_usearch orfs.fna -output orfs.udb
 
 Now run a search of A vs B and the B vs A:
 
-
+```sh
 usearch -usearch_global pcc.fna -db orfs.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout forward_hits.fas -blast6out forward_hit.tab
 
 usearch -usearch_global orfs.fna -db pcc.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout reverse_hits.fas -blast6out reverse_hit.tab
-
-The number of lines in the .tab file is equivalent to the number of hits.  You can get the number with the following command on the .tab file:
+```
+In my case I get this:
+```sh
+00:27 198Mb  100.0% Searching, 16.6% matched
+00:08 175Mb  100.0% Searching, 72.2% matched
+```
+The number of lines in the .tab file is equivalent to the number of hits. You can count the ">" character in the .fna files to find out how many sequences in total you had.  You can get the number with the following commands:
 
 ```sh
-wc -l < filename
+wc -l < forward_hit.tab
+wc -l < reverse_hit.tab
+fgrep -o ">" pcc.fna | wc -l
+fgrep -o ">" orfs.fna | wc -l
 ```
+
+Are the forward and reverse numbers the same ? Why might they not be ?
 
 Use this data to make a Venn-diagram:
 
