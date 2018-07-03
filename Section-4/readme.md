@@ -203,7 +203,7 @@ By using '|' we can 'pipe' the ouptut to another linux command such as 'sed or a
 
 
 ```sh
-cat sscmarkers.domtblout.txt | sed '/^#/ d' | awk '{print $4}'
+cat sscmarkers.out.txt | sed '/^#/ d' | awk '{print $4}'
 ```
 
 The 'sed' command removes all annoation lines, which start with a '#' character.
@@ -213,14 +213,16 @@ the 'awk' command extracts the fourth column, which contains the single copy mar
 - We can get the UNIQUE HITS using 'sort'
 
 ```sh
-cat sscmarkers.hmmsearch.txt | sed '/^#/ d' | awk '{print $4}' | sort -u
+cat sscmarkers.out.txt | sed '/^#/ d' | awk '{print $4}' | sort -u
 ```
 
 - All that is left is to count them
 
 ```sh
-cat sscmarkers.hmmsearch.txt | sed '/^#/ d' | awk '{print $4}' | sort -u | wc -l
+cat sscmarkers.out.txt | sed '/^#/ d' | awk '{print $4}' | sort -u | wc -l
 ```
+
+This produces 36 for me.  (36 / 111) * 100 = 32.4%.   We also know from our prior analysis that we have 414 total genes in our dataset.  => (414 / 32.4)  * 100  => the estimated total genome size is ~1,277 genes
 
 #### SELF EVALUATION
 
