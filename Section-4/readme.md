@@ -165,5 +165,3 @@ Take a look at the .png files that are produced. Extra points if you can figure 
 
 ![bacteria vs archaea](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/BAC_ARC.png)
 
-
-### What proportion of a population carries a particular Gene ?
