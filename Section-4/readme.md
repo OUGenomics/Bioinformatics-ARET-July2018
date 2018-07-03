@@ -2,7 +2,7 @@
 
 The process of genome annotation aims to assign function to DNA sequence.  In the simplest terms, it involves predicting the presence of functional RNA and protein coding genes.  Subsequently, these assignments are used to determine what the purpose the resulting products have inside cells.  It is not a trivial task and can be extremely time consuming.  It is also fraught with pitfalls and opportunities to do yourself a great disservice by confounding your ability to perform worthwhile downstream analysis.
 
-We'll start the secion with a 5 minutes presentation from each person on what they have learned about their genome from the RAST annoation.  We'll then proceed to predicting some features of an assembled genome dataset.  We'll do this using some web-based tools and then I'll show you how to use linux bases software to do the same.
+We'll start the section with a 5 minutes presentation from each person on what they have learned about their genome from the RAST annotation.  We'll then proceed to predicting some features of an assembled genome dataset.  We'll do this using some web-based tools and then I'll show you how to use linux bases software to do the same.
 
 The following websites will come in handy for this:
 
@@ -21,7 +21,7 @@ http://www.ebi.ac.uk/embl/
 
 ### RAST Annotation
 
-RAST is a wonderful, fast annoation tool that gives you some basic idea of the genomic content of your organisms:
+RAST is a wonderful, fast annotation tool that gives you some basic idea of the genomic content of your organisms:
 
 ![RAST pie chart](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/RAST_pie.PNG)
 
@@ -48,7 +48,7 @@ mkdir /data/prodigal
 cd /data
 ```
 
-To predict ORFs as nucleotide (fna) and amio acid (faa) sequences do the following with your Contigs.fna file:
+To predict ORFs as nucleotide (fna) and amino acid (faa) sequences do the following with your Contigs.fna file:
 
 ```sh 
 prodigal -d prodigal/temp.orfs.fna -a prodigal/temp.orfs.faa -i contigs.fna -m -o prodigal/scores.txt -p meta -q
@@ -88,7 +88,7 @@ Which one produces longers ORFs ? Which produces more ORFs ? Which is better ? W
 
 ### Finding tRNA and rRNA genes
 
-Lets start with tRNAs.  You can  use the web-portal above, and that is great. However, you are essentially tied ot the computational resources of someone else.  If they are busy, the server goes down, or your sequence file is too large, you will be stuck.  There are also many situations where you potentially have a large batch of sequences to check.  Most 'free' services will not be able to handle that sort of large data load.  In these situations, it is necessary to run requistie software locally. For tRNAScan-SE, you can find the documentation here:
+Lets start with tRNAs.  You can  use the web-portal above, and that is great. However, you are essentially tied to the computational resources of someone else.  If they are busy, the server goes down, or your sequence file is too large, you will be stuck.  There are also many situations where you potentially have a large batch of sequences to check.  Most 'free' services will not be able to handle that sort of large data load.  In these situations, it is necessary to run requisite software locally. For tRNAScan-SE, you can find the documentation here:
 
 http://lowelab.ucsc.edu/software/tRNAscan-SE-1.23.README
 
@@ -104,7 +104,7 @@ Did you get the same result as on the web-portal ?
 
 ### Pairwise Blast -- Genome-to-Genome Comparison
 
-Yesterday you assembled a partial genome from a single cell genome sequencing project.  One qustion you may have is how similar this genome is to the genomes of previously sequenced bacteria - maybe the most closely related strain.   You can do this by downloading all the predicted proteins for a bacterium from a public database and then running a pairwise blast.  The best way to do this is to go to NCBIs GenBank 
+Yesterday you assembled a partial genome from a single cell genome sequencing project.  One question you may have is how similar this genome is to the genomes of previously sequenced bacteria - maybe the most closely related strain.   You can do this by downloading all the predicted proteins for a bacterium from a public database and then running a pairwise blast.  The best way to do this is to go to NCBI's GenBank 
 
 https://www.ncbi.nlm.nih.gov/genbank/
 
@@ -167,7 +167,7 @@ Use this data to make a Venn-diagram:
 
 ### Assessing Genome Completeness
 
-Genome sequencing has become very routine, but rarely do you have a complete microbial genome after a simple Illumina run. In most cases, assuming that a genome is sequenced to a coverage of about 200x, you end up wwith 50-100 contigs of varying length.   Similarly, metagenomic binning or single cell genome sequencing typically only results in partial genome bins.  In these cases, it helps to be able to assess how complete the assembly is, i.e. what proportion of a bacterial genome is not captured by the assembly. In the above example, I show a dashed circle to indicate that we are likly missing the majority of the genome.  All things being equal and random sequencing we should be able to estimate tha proportion of missing genome data by  comparison to a database of single copy marker genes:
+Genome sequencing has become very routine, but rarely do you have a complete microbial genome after a simple Illumina run. In most cases, assuming that a genome is sequenced to a coverage of about 200x, you end up with 50-100 contigs of varying length.   Similarly, metagenomic binning or single cell genome sequencing typically only results in partial genome bins.  In these cases, it helps to be able to assess how complete the assembly is, i.e. what proportion of a bacterial genome is not captured by the assembly. In the above example, I show a dashed circle to indicate that we are likely missing the majority of the genome.  All things being equal and random sequencing we should be able to estimate that proportion of missing genome data by comparison to a database of single copy marker genes:
 
 ```
 Wu, D.Y., Jospin, G., and Eisen, J.A. (2013) Systematic Identification of Gene Families for Use as "Markers" for Phylogenetic and Phylogeny-Driven Ecological Studies of Bacteria and Archaea and Their Major Subgroups. Plos One 8.
@@ -181,11 +181,11 @@ cp prodigal/orfs.faa smc
 cd smc
 wget https://github.com/bwawrik/MBIO5810/raw/master/sequence_data/sc_markers_bacteria.hmm
 ```
-The .hmm file contains the models for 111 single copy markger genes found in all bacteria.
+The .hmm file contains the models for 111 single copy marker genes found in all bacteria.
 
 Run the HMM search:
 
-The first step is to run an HMM search of your HMM models agains each of the amino acid sequences. I'm applying an E score of 1E-10 here. This is relatively conservative. The commands below are for the SDB_ONE.faa file. 
+The first step is to run an HMM search of your HMM models against each of the amino acid sequences. I'm applying an E score of 1E-10 here. This is relatively conservative. The commands below are for the SDB_ONE.faa file. 
 
 ```sh 
 hmmsearch -E 0.0000000001 --domtblout sscmarkers.out.txt sc_markers_bacteria.hmm orfs.faa > sscmarkers.hmmsearch.txt
@@ -199,14 +199,14 @@ Lets break down the --domblout output and learn about piping. This command puts 
 cat sscmarkers.domtblout.txt
 ```
 
-By using '|' we can 'pipe' the ouptut to another linux command such as 'sed or awk:
+By using '|' we can 'pipe' the outptut to another linux command such as 'sed or awk:
 
 
 ```sh
 cat sscmarkers.out.txt | sed '/^#/ d' | awk '{print $4}'
 ```
 
-The 'sed' command removes all annoation lines, which start with a '#' character.
+The 'sed' command removes all annotation lines, which start with a '#' character.
 the 'awk' command extracts the fourth column, which contains the single copy marker gene identifiers.
 
 
@@ -233,7 +233,7 @@ This produces 36 for me.  (36 / 111) * 100 = 32.4%.   We also know from our prio
 
 ### Proportion of Arachae to Bacteria
 
-Microbial populations are made of both bacteria and archaea - but at what proportoin ? You can use metagenome analysis to figure this out by comparing all reads against a reference database of a single copy marker gene (SCMG).  SCMGs are genes which are only found once in each genome but are required to make a functional cell.  The 16S rRNA gene is not actually a SCMG, as it is frequently found twice, three, or four times or more in bacterial genomes (about once per megabase of sequence).  My preferred marker gene is rpoB.  We'll use two reference fasta files, one from bacteria and one from archaea. You can download these from this github entry here (lets put them in a sub-directory so we don't clutter things up):
+Microbial populations are made of both bacteria and archaea - but at what proportion  ? You can use metagenome analysis to figure this out by comparing all reads against a reference database of a single copy marker gene (SCMG).  SCMGs are genes which are only found once in each genome but are required to make a functional cell.  The 16S rRNA gene is not actually a SCMG, as it is frequently found twice, three, or four times or more in bacterial genomes (about once per megabase of sequence).  My preferred marker gene is rpoB.  We'll use two reference fasta files, one from bacteria and one from archaea. You can download these from this github entry here (lets put them in a sub-directory so we don't clutter things up):
 
 ```sh
 mkdir rpoB
@@ -264,7 +264,7 @@ In my case this produces:
 2923
 ```
 
-The proportion of bacteria is (2923/(2923+746))*100 = 79.7%.  This of course mease that 20.3% of prokaryotic cells are Archaea.
+The proportion of bacteria is (2923/(2923+746))*100 = 79.7%.  This, of course, means that 20.3% of prokaryotic cells are Archaea.
 
 While we are at it -- lets have some R-fun.  Try this:
 
