@@ -104,6 +104,36 @@ Did you get the same result as on the web-portal ?
 
 ### Pairwise Blast -- Genome-to-Genome Comparison
 
+Yesterday you assembled a partial genome from a single cell genome sequencing project.  One qustion you may have is how similar this genome is to the genomes of previously sequenced bacteria - maybe the most closely related strain.   You can do this by downloading all the predicted proteins for a bacterium from a public database and then running a pairwise blast.  The best way to do this is to go to NCBIs GenBank 
+
+https://www.ncbi.nlm.nih.gov/genbank/
+
+Then search for the name of the  most closely related organism and add the term 'whole genome' to the search criteria. So, for example, search for 'Prochlorococcus marinus whole genome'.  You'll get a series of hits --
+
+```sh
+Prochlorococcus marinus MED4 complete genome
+1,657,990 bp circular DNA
+Accession:    NC_005072.1	GI:    33860560
+
+Prochlorococcus marinus MIT9313 complete genome
+2,410,873 bp circular DNA
+Accession:    NC_005071.1	GI:    33862273
+
+[...]
+```
+
+Select one -- make sure it is a whole genome sequence (check the size).  On the next page, select 'send to file' and choose 'coding sequences' and 'fasta nucleotide'
+
+![get genome fasta](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/get_genome_fasta.PNG)
+
+Save the file and name it appropriately.  I will name mine 'pcc.fas' for this example. Transfer the file to your docker /data folder.  Now prepare a usearch database from your predicted ORFs (nucleotide) and from this genome data:
+
+
+
+
+
+
+
 
 ### KEGG Annotation -- and KEGG Mapping
 
