@@ -127,6 +127,42 @@ wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sampl
 
 Do you remember how to make userach reference databases ? If not, go back to the prior tutorials.
 
+The nice thing about usearch is that it eats both DNA and protein as well as fasta or fastq file. Very convenient ! Now find your metagenome files from the earlier tutorial and run usearch against the archaeal and bacterial reference databases:
+
+```sh
+usearch -usearch_global SRX3577904_1.fastq -db bac.udb -id 0.4 -strand both -mincols 20 -maxhits 1 -qsegout bac_hit.fas -blast6out bac_hit.tab
+
+usearch -usearch_global SRX3577904_1.fastq -db arc.udb -id 0.4 -strand both -mincols 20 -maxhits 1 -qsegout arc_hit.fas -blast6out arc_hit.tab
+```
+
+The number of lines in the .tab file is equivalent to the number of hits.  You can get the number of hits using
+
+```sh
+wc -l < filename
+```
+
+In my case this produces:
+
+```sh
+[root@ffc80b019c25 rpob]# wc -l arc_hit.tab
+746 arc_hit.tab
+[root@ffc80b019c25 rpob]# wc -l <arc_hit.tab
+746
+[root@ffc80b019c25 rpob]# wc -l <bac_hit.tab
+2923
+```
+
+The proportion of bacteria is (2923/(2923+746))*100 = 79.7%.  This of course mease that 20.3% of prokaryotic cells are Archaea.
+
+While we are at it -- lets have some R-fun.  Try this:
+
+```sh
+wget https://github.com/bwawrik/MBIO5810/raw/master/R_scripts/bargraph_redgreen_scale.r
+Rscript bargraph_redgreen_scale.r $(calc 100*$(fgrep -o ">" bac_hit.fas | wc -l)/$(fgrep -o "+" SRX3577904_1.fastq | wc -l)*2) bac.png
+Rscript bargraph_redgreen_scale.r $(calc 100*$(fgrep -o ">" arc_hit.fas | wc -l)/$(fgrep -o "+" SRX3577904_1.fastq | wc -l)*2) arc.png
+```
+Take a look at the .png files that are produced. Extra points if you can figure out what happened here ;)
+
 
 
 ### What proportion of a population carries a particular Gene ?
