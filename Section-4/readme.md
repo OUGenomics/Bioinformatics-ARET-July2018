@@ -145,7 +145,7 @@ usearch -usearch_global pcc.fna -db orfs.udb -id 0.7 -strand both -mincols 50 -m
 
 usearch -usearch_global orfs.fna -db pcc.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout reverse_hits.fas -blast6out reverse_hit.tab
 
-The number of lines in the .tab file is equivalent to the number of hits.  You can get the number of hits the following command on the .tab file:
+The number of lines in the .tab file is equivalent to the number of hits.  You can get the number with the following command on the .tab file:
 
 ```sh
 wc -l < filename
@@ -186,11 +186,7 @@ usearch -usearch_global SRX3577904_1.fastq -db bac.udb -id 0.4 -strand both -min
 usearch -usearch_global SRX3577904_1.fastq -db arc.udb -id 0.4 -strand both -mincols 20 -maxhits 1 -qsegout arc_hit.fas -blast6out arc_hit.tab
 ```
 
-The number of lines in the .tab file is equivalent to the number of hits.  You can get the number of hits using
-
-```sh
-wc -l < filename
-```
+The number of lines in the .tab file is equivalent to the number of hits:
 
 In my case this produces:
 
