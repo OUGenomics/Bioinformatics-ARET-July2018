@@ -128,11 +128,32 @@ Select one -- make sure it is a whole genome sequence (check the size).  On the 
 
 Save the file and name it appropriately.  I will name mine 'pcc.fas' for this example. Transfer the file to your docker /data folder.  Now prepare a usearch database from your predicted ORFs (nucleotide) and from this genome data:
 
+```sh
+cd /data
+mkdir genome2genome
+cp pcc.fna genome2genome
+cp prodigal/orfs.fna genome2genome/orfs.fna
+cd genome2genome
+usearch -makeudb_usearch pcc.fna -output pcc.udb
+usearch -makeudb_usearch orfs.fna -output orfs.udb
+```
+
+Now run a search of A vs B and the B vs A:
 
 
+usearch -usearch_global pcc.fna -db orfs.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout forward_hits.fas -blast6out forward_hit.tab
 
+usearch -usearch_global orfs.fna -db pcc.udb -id 0.7 -strand both -mincols 50 -maxhits 1 -qsegout reverse_hits.fas -blast6out reverse_hit.tab
 
+The number of lines in the .tab file is equivalent to the number of hits.  You can get the number of hits the following command on the .tab file:
 
+```sh
+wc -l < filename
+```
+
+Use this data to make a Venn-diagram:
+
+![genome2genome venn](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/venn.png)
 
 
 ### KEGG Annotation -- and KEGG Mapping
