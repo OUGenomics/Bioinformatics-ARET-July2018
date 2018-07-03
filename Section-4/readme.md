@@ -88,7 +88,7 @@ Which one produces longers ORFs ? Which produces more ORFs ? Which is better ? W
 
 ### Finding tRNA and rRNA genes
 
-Lets start with tRNAs.  You can  use the web-portal above, and that is great. However, you are essentially tied ot the computational resources of someone else.  If they are busy, the server goes down, or your sequence file is too large, you will be stuck.  There are also many situations where you potentially have a large batch of sequences to check.  Most 'free' services will not be able to handle that sort of large data load.  In these situations, it is necessary to run requistie software locally. For rRNAScan-SE, you can find the documentation here:
+Lets start with tRNAs.  You can  use the web-portal above, and that is great. However, you are essentially tied ot the computational resources of someone else.  If they are busy, the server goes down, or your sequence file is too large, you will be stuck.  There are also many situations where you potentially have a large batch of sequences to check.  Most 'free' services will not be able to handle that sort of large data load.  In these situations, it is necessary to run requistie software locally. For tRNAScan-SE, you can find the documentation here:
 
 http://lowelab.ucsc.edu/software/tRNAscan-SE-1.23.README
 
@@ -99,10 +99,8 @@ mkdir tRNAscan
 tRNAscan-SE -G -o tRNAscan/output.txt  contigs.fna
 ```
 
+Did you get the same result as on the web-portal ?
 
-rRNAmmer
-
-perl rnammer -s bac -m lsu,ssu,tsu -gff - <example/ecoli.fsa
 
 ### Pairwise Blast -- Genome-to-Genome Comparison
 
