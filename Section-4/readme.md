@@ -122,8 +122,11 @@ Microbial populations are made of both bacteria and archaea - but at what propor
 ```sh
 mkdir rpoB
 wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/arc_rpoB_AA.faa
-
+wget https://github.com/OUGenomics/Bioinformatics-ARET-July2018/raw/master/sample_seqs/bac_rpoB_AA.faa
 ```
+
+Do you remember how to make userach reference databases ? If not, go back to the prior tutorials.
+
 
 
 ### What proportion of a population carries a particular Gene ?
