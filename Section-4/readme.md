@@ -213,13 +213,13 @@ the 'awk' command extracts the fourth column, which contains the single copy mar
 - We can get the UNIQUE HITS using 'sort'
 
 ```sh
-cat SDB_one_sscmarkers.domtblout.txt | sed '/^#/ d' | awk '{print $4}' | sort -u
+cat sscmarkers.hmmsearch.txt | sed '/^#/ d' | awk '{print $4}' | sort -u
 ```
 
 - All that is left is to count them
 
 ```sh
-cat SDB_one_sscmarkers.domtblout.txt | sed '/^#/ d' | awk '{print $4}' | sort -u | wc -l
+cat sscmarkers.hmmsearch.txt | sed '/^#/ d' | awk '{print $4}' | sort -u | wc -l
 ```
 
 #### SELF EVALUATION
