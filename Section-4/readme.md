@@ -158,8 +158,8 @@ While we are at it -- lets have some R-fun.  Try this:
 
 ```sh
 wget https://github.com/bwawrik/MBIO5810/raw/master/R_scripts/bargraph_redgreen_scale.r
-Rscript bargraph_redgreen_scale.r $(calc 100*$(fgrep -o ">" bac_hit.fas | wc -l)/$(fgrep -o "+" SRX3577904_1.fastq | wc -l)*2) bac.png
-Rscript bargraph_redgreen_scale.r $(calc 100*$(fgrep -o ">" arc_hit.fas | wc -l)/$(fgrep -o "+" SRX3577904_1.fastq | wc -l)*2) arc.png
+Rscript bargraph_redgreen_scale.r $(calc 3669*$(fgrep -o ">" bac_hit.fas | wc -l)/$(fgrep -o "+" SRX3577904_1.fastq | wc -l)*2) bac.png
+Rscript bargraph_redgreen_scale.r $(calc 3669*$(fgrep -o ">" arc_hit.fas | wc -l)/$(fgrep -o "+" SRX3577904_1.fastq | wc -l)*2) arc.png
 ```
 Take a look at the .png files that are produced. Extra points if you can figure out what happened here ;)
 
