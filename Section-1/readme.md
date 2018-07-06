@@ -84,12 +84,19 @@ You should get an output something like this:
 SRX3973296_1.fastq.gz SRX3973296_2.fastq.gz
 ```
 
+```sh
+NOTE: IF YOUR OUTPUT FILES ARE NOT SHOWING UP IN '~/data' AS EXPECTED -- TRY THIS:
+
+cd data/docker_data/data
+Now re-run the 'fastq-dump' code.
+```
+
 Lets uncompress the files:
 
 ```sh
 gunzip *.gz
 ```
-Your direcotry content should now be this:
+Your directory content should now be this:
 
 ```sh
 SRX3973296_1.fastq SRX3973296_2.fastq
