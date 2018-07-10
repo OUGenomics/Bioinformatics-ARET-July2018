@@ -5,7 +5,7 @@ In this exercise, we will learn how to make a robust species identification usin
 The first thing you will need is a good reference dataset to compare your reads against.  The following downloads a slightly older version of the SILVA database.  I actually like this older file, because it is smaller and does not contain the bloat of next generation sequencing reads.  Its great for the purpose of read extraction. It is not the best for classification (Section 4).  
 
 ```sh
-wget http://mgmic.oscer.ou.edu/sequence_data/ARET/Silva_108_rep_set.fasta
+wget http://mgmic.oscer.ou.edu/sequence_data/ARET/Silva_108_rep_set.fasta.gz
 ```
 
 The most up to date SILVA files can be found on the SILVA homepage :
