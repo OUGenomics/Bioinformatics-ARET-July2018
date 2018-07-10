@@ -226,7 +226,7 @@ If you go back to the web browser and scroll down the previous page, you will fi
 
 ### Draw a Phylogenetic Tree 
 There are many programs that are capable of drawing phylogenetic trees.  The most suitable, widely used and free program that does this is “FigTree”. http://tree.bio.ed.ac.uk/software/figtree/.  If we have time, we'll download and install this program.  
-In the program FigTree, under File, Open, choose the phylogenetic tree file you saved from ClustalW2 that you gave the .tre suffix. Export your phylogenetic tree as a PDF file.   
+In the program FigTree, under File, Open, choose the phylogenetic tree file you saved from MAFFT that you gave the .tre suffix. Export your phylogenetic tree as a PDF file.   
 
 ### Running Alignments Locally
 
