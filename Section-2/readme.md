@@ -6,7 +6,7 @@ The first thing you will need is a good reference dataset to compare your reads 
 
 ```sh
 wget http://mgmic.oscer.ou.edu/sequence_data/ARET/Silva_108_rep_set.fasta.gz
-gunzip *gz
+gunzip *.gz
 ```
 
 The most up to date SILVA files can be found on the SILVA homepage :
