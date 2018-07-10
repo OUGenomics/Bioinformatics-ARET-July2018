@@ -238,7 +238,7 @@ sh /opt/local/software/mafft-linux64/mafft.bat rdp_results.fas > allign.fas
 Allign.fas should contain the same alignment that the online portal generated for you.  Finally, you can generate the tree file with a program calle MUSCLE:
 
 ```sh
-muscle -in alling.fas -tree1 tree.phy
+muscle -in allign.fas -tree1 tree.phy
 ```
 You can view your tree file with cat:
 
