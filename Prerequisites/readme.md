@@ -3,7 +3,7 @@
 
 ### Installing Docker
 
-First things first.  In all liklyhood you do not own a computer that runs linux - at least not in the way that we will need to use it in this course.  You first order of business is to install docker. Before you can do this, you need to create an account on dockerhub:
+First things first.  In all likelihood you do not own a computer that runs linux - at least not in the way that we will need to use it in this course.  You first order of business is to install docker. Before you can do this, you need to create an account on dockerhub:
 
 https://hub.docker.com/
 
