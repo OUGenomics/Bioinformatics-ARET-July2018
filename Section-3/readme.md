@@ -54,7 +54,7 @@ grep -A 1 -f HITS.fasta.tags CAM_SMPL_SRA022063.fa > h.fas
 sed '/--/d' h.fas > MG_16_seqs.fasta
 ```
 
-The file "h.fasta" contains your 16S reads, this time not from an isolate but rather from an community.  Lets take this to the RDP classifier to get a rough idea what we have in the file:
+The file "h.fas" contains your 16S reads, this time not from an isolate but rather from an community.  Lets take this to the RDP classifier to get a rough idea what we have in the file:
 
 ![rdp classifier community](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/rdp_classifier_community.PNG)
 
