@@ -28,9 +28,20 @@ Save the file. Then locate it, double click it, and follow the instructions for 
 
 ![start docker](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/docker_icon.PNG)
 
+#### If your system doesn't meet Docker's requirements, download Docker Toolbox instead.
+> Docker Toolbox is an older version of Docker that (mostly) operates the same as the latest version. 
+> Go to the [Docker Toolbox page](https://docs.docker.com/toolbox/overview/) and "Get Docker Toolbox for Windows," and follow the 
+> Windows [install instructions](https://docs.docker.com/toolbox/toolbox_install_windows/#step-1-check-your-version). 
+![dowload toolbox](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/Docker_Toolbox.png)
+
+
 Once docker is started (this can take a minute or two; be patient), you'll need to open a powershell window.  I pin my powershell icon to the taskbar. If you don't know where to find it, click the windows icon and type 'powershell' into the search bar:
 
 ![find powershell](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/finding_powershell.png)
+
+#### *In Docker Toolbox 
+Once Docker is running, open PowerShell in Administrator Mode.* 
+![power admin](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/powershell_admin.png)
 
 Test your docker installation by typing:
 
