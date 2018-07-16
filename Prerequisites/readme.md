@@ -40,7 +40,7 @@ Once docker is started (this can take a minute or two; be patient), you'll need 
 ![find powershell](https://github.com/OUGenomics/Bioinformatics-ARET-July2018/blob/master/images/finding_powershell.png)
 
 #### *In Docker Toolbox*
-Once Docker is running, open PowerShell in Administrator Mode.
+> Once Docker is running, open PowerShell in Administrator Mode.
 > Right click on the Powershell icon and select "Run as Administrator", OR
 > Right click on the Windows logo in the task bar and select "Windows PowerShell (Admin)."
 
