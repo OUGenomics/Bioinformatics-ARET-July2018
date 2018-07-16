@@ -22,11 +22,25 @@ Now create a data directory.  You can give it any name you wish; just keep track
 mkdir /docker_data/data/
 ```
 
+#### In Docker Toolbox
+```sh
+cd .. #do as many times as it takes to get to your C:/ directory
+cd "program files"
+cd "docker toolbox"
+```
+
 Start your docker by typing:
 
 ```sh
 cd /docker_data/data
 docker run -t -i -v c:/docker_data/data/:/data bwawrik/bioinformatics:latest
+```
+
+#### In Docker Toolbox
+```sh
+cd data
+cd c
+cd Users/<your user profile>/<your directory name> #The *U* in User must be capitalized
 ```
 
 Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accessible to windows.
