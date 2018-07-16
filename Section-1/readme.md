@@ -24,7 +24,8 @@ mkdir /docker_data/data/
 
 #### In Docker Toolbox
 ```sh
-cd .. #do as many times as it takes to get to your C:/ directory
+cd .. # Use ../ as many times as it takes to get to your C:/ directory
+# For example, if your root is C:/Users/username, you would cd ../.. to get back to C:/
 cd "program files"
 cd "docker toolbox"
 ```
