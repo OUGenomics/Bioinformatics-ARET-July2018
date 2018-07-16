@@ -38,9 +38,8 @@ docker run -t -i -v c:/docker_data/data/:/data bwawrik/bioinformatics:latest
 
 #### In Docker Toolbox
 ```sh
-cd data
-cd c
-cd Users/<your user profile>/<your directory name> #The *U* in User must be capitalized
+cd data/c/Users/your user profile name/your directory name 
+#The *U* in User must be capitalized
 ```
 
 Congratulations!! You are now running my bioinformatics docker! Perform all your analyses in the `/data` directory. When you exit the docker your files will be in `~/data` and accessible to windows.
