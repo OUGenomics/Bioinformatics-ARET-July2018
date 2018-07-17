@@ -16,7 +16,7 @@ https://www.arb-silva.de/
 Lets start by preparing our reference database from the SILVA file:
 
 ```sh
-usearch -makeudb_usearch Silva_108_rep_set.fasta -output SILVA_108.udb
+usearch -makeudb_usearch Silva_108_rep_set.fna -output SILVA_108.udb
 ```
 
 Now lets go to the SRA and find ourselves some data.   For this, you will need some data with decent read lengths.  Much of the SRA is unfortunately populated with very short HiSeq reads (<100 bp of usable data).   I prefer using MiSeq when sequencing a genome because the reads are 250-300 bp long.   
