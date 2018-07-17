@@ -44,14 +44,15 @@ https://github.com/hyattpd/Prodigal
 Lets start by making a sub-directory called 'prodigal' to deposit our output:
 
 ```sh 
-mkdir /data/prodigal
-cd /data
+mkdir prodigal
+cd /data # If you aren't already in the data directory
 ```
 
 To predict ORFs as nucleotide (fna) and amino acid (faa) sequences do the following with your Contigs.fna file:
 
 ```sh 
-prodigal -d prodigal/temp.orfs.fna -a prodigal/temp.orfs.faa -i contigs.fna -m -o prodigal/scores.txt -p meta -q
+prodigal -d prodigal/temp.orfs.fna -a prodigal/temp.orfs.faa -i ray_31/contigs.fasta -m -o prodigal/scores.txt -p meta -q
+# Replace the ray_31 directory with whatever directory your contig.fasta file is located in
 ```
 You can clean the output file up a little using a cut command:
 ```sh 
@@ -72,7 +73,7 @@ cp /opt/local/software/FragGeneScan1.19/train/* Ftrain
 And now predict the ORFs:
 
 ```sh 
-FragGene_Scan -s Contigs.fasta -o /FragGeneScan/output.FragGeneScan -w 1 -t complete
+FragGene_Scan -s Contigs.fasta -o FragGeneScan/output.FragGeneScan -w 1 -t complete
 ```
 
 Lets compare the two methods:
