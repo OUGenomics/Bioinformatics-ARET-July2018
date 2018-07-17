@@ -64,15 +64,15 @@ http://omics.informatics.indiana.edu/FragGeneScan/
 
 OK, now lets do it a different way using FragGeneScan.  Start by making an output directory.  Then you'll need to copy the training set into a local directory. This is a workaround; I'm not sure why it doesn't work without copying these files; sorry !) :
 ```sh 
-mkdir /data/FragGeneScan
-mkdir /data/Ftrain
-cp /opt/local/software/FragGeneScan1.19/train/* /data/Ftrain
+mkdir FragGeneScan
+mkdir Ftrain
+cp /opt/local/software/FragGeneScan1.19/train/* Ftrain
 ```
 
 And now predict the ORFs:
 
 ```sh 
-FragGene_Scan -s contigs.fna -o /data/FragGeneScan/output.FragGeneScan -w 1 -t complete
+FragGene_Scan -s Contigs.fasta -o /FragGeneScan/output.FragGeneScan -w 1 -t complete
 ```
 
 Lets compare the two methods:
