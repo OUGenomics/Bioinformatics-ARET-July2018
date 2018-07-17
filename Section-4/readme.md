@@ -80,7 +80,7 @@ Lets compare the two methods:
 
 ```sh
 wget https://github.com/bwawrik/MBIO5810/raw/master/perl_scripts/N50.pl
-perl N50.pl FragGeneScan/output.frag.ffn
+perl N50.pl FragGeneScan/output.FragGeneScan.ffn
 perl N50.pl prodigal/orfs.fna
 ```
 
