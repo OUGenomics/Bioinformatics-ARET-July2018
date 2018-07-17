@@ -73,7 +73,7 @@ cp /opt/local/software/FragGeneScan1.19/train/* Ftrain
 And now predict the ORFs:
 
 ```sh 
-FragGene_Scan -s Contigs.fasta -o FragGeneScan/output.FragGeneScan -w 1 -t complete
+FragGene_Scan -s ray_31/contigs.fasta -o FragGeneScan/output.FragGeneScan -w 1 -t complete
 ```
 
 Lets compare the two methods:
